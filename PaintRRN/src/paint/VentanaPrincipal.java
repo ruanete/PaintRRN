@@ -38,6 +38,8 @@ import javax.activation.UnsupportedDataTypeException;
 import javax.imageio.ImageIO;
 import javax.sound.sampled.AudioFileFormat;
 import javax.sound.sampled.AudioSystem;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.DefaultListModel;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -125,7 +127,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         listaDesplegableColoresRelleno.addItem(Color.WHITE);
         listaDesplegableColoresRelleno.addItem(Color.YELLOW);
         listaDesplegableColoresRelleno.addItem(Color.GREEN);
-        listaDesplegableColoresRelleno.setRenderer(new ListaDesplegable());
+        listaDesplegableColoresRelleno.setRenderer(new ListaDesplegable());   
     }
     
     public void timeTick(){
@@ -242,8 +244,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         vi.getLienzo().setAlisar(alisar);
         
         listaDesplegableFiguras.removeAllItems();
+        ((DefaultComboBoxModel) listaDesplegableFiguras.getModel()).addElement(new String("Figura no seleccionada"));
         for(int i=0;i<vi.getLienzo().getvShape().size();i++){
-            listaDesplegableFiguras.addItem(vi.getLienzo().getvShape().get(i));
+            ((DefaultComboBoxModel) listaDesplegableFiguras.getModel()).addElement(vi.getLienzo().getvShape().get(i));
         }        
     }
     
@@ -352,6 +355,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         spinnerNivelTransparencia = new javax.swing.JSpinner();
         checkAlisar = new javax.swing.JToggleButton();
         listaDesplegableFiguras = new javax.swing.JComboBox<>();
+        listaDesplegableFiguras.setModel(new DefaultComboBoxModel());
+ ((DefaultComboBoxModel) listaDesplegableFiguras.getModel()).addElement("Figura no seleccionada");
         jLabel1 = new javax.swing.JLabel();
         coordenadaX = new javax.swing.JFormattedTextField();
         jLabel2 = new javax.swing.JLabel();
@@ -417,7 +422,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         submenuAcercaDe = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1600, 900));
+        setPreferredSize(new java.awt.Dimension(1650, 900));
 
         barraHerramientas.setRollover(true);
         barraHerramientas.setMargin(new java.awt.Insets(5, 0, 5, 0));
@@ -737,7 +742,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
         barraHerramientas.add(checkAlisar);
 
-        listaDesplegableFiguras.setPreferredSize(new java.awt.Dimension(150, 30));
+        listaDesplegableFiguras.setPreferredSize(new java.awt.Dimension(170, 30));
         listaDesplegableFiguras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 listaDesplegableFigurasActionPerformed(evt);
@@ -2264,11 +2269,16 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         VentanaInterna vi = (VentanaInterna)escritorio.getSelectedFrame();
         if(vi!=null){
-            if(listaDesplegableFiguras.getItemCount()!=1){
+            if(listaDesplegableFiguras.getSelectedIndex()>0){
                 botonEditar.setSelected(true);
                 vi.getLienzo().setFigura_seleccionada((ShapeRRN)listaDesplegableFiguras.getSelectedItem());
                 vi.getLienzo().setModoPintado(ModoPintado.Edicion);
                 vi.getLienzo().setLienzoEdit();
+                vi.repaint();
+            }else if(listaDesplegableFiguras.getSelectedIndex()==0){
+                botonEditar.setSelected(false);
+                vi.getLienzo().setFigura_seleccionada(null);
+                vi.getLienzo().setModoPintado(ModoPintado.Punto);
                 vi.repaint();
             }
         }
@@ -2434,7 +2444,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> listaDesplegableBandas;
     protected javax.swing.JComboBox<Color> listaDesplegableColoresContorno;
     protected javax.swing.JComboBox<Color> listaDesplegableColoresRelleno;
-    protected javax.swing.JComboBox<ShapeRRN> listaDesplegableFiguras;
+    protected javax.swing.JComboBox<Object> listaDesplegableFiguras;
     private javax.swing.JComboBox<String> listaDesplegableFiltro;
     protected javax.swing.JComboBox<String> listaDesplegableTipoRelleno;
     protected javax.swing.JComboBox<String> listaDesplegableTipoTrazo;

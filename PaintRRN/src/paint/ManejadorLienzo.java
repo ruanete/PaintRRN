@@ -6,6 +6,7 @@
 package paint;
 
 import java.awt.Color;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.JToggleButton;
 import sm.rrn.eventos.LienzoEvent;
@@ -33,7 +34,7 @@ public class ManejadorLienzo implements LienzoListener{
    
     @Override
     public void shapeAdded(LienzoEvent evt) {
-        ventanaPrincipal.listaDesplegableFiguras.addItem(evt.getShape());
+        ((DefaultComboBoxModel) ventanaPrincipal.listaDesplegableFiguras.getModel()).addElement(evt.getShape());
     }
 
     @Override

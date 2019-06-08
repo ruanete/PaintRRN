@@ -5,6 +5,7 @@
  */
 package paint;
 
+import javax.swing.DefaultComboBoxModel;
 import sm.rrn.graficos.AntialiasingRRN;
 import sm.rrn.iu.Lienzo2D;
 import sm.rrn.iu.LienzoImagen2D;
