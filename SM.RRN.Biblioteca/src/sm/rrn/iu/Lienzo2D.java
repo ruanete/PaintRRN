@@ -38,7 +38,7 @@ import sm.rrn.graficos.TrazoRRN;
 
 /**
  *
- * @author raulr
+ * @author Raúl Ruano Narváez
  */
 public class Lienzo2D extends javax.swing.JPanel {
     private ArrayList<LienzoListener> lienzoEventListeners;
@@ -47,14 +47,54 @@ public class Lienzo2D extends javax.swing.JPanel {
     private Point pIni, pFin, pRef;
     private int paso;
     
+    /**
+     *
+     */
     protected ModoPintado modo_pintado;
-    protected Color colorStroke, colorRelleno;
+
+    /**
+     *
+     */
+    protected Color colorStroke,
+
+    /**
+     *
+     */
+    colorRelleno;
+
+    /**
+     *
+     */
     protected int tamañoTrazo;
+
+    /**
+     *
+     */
     protected TipoTrazo trazo;
+
+    /**
+     *
+     */
     protected boolean relleno;
+
+    /**
+     *
+     */
     protected TipoRelleno tipo_relleno;
+
+    /**
+     *
+     */
     protected boolean transparencia;
+
+    /**
+     *
+     */
     protected float nivelTransparencia;
+
+    /**
+     *
+     */
     protected boolean alisar;
     
     
@@ -80,6 +120,10 @@ public class Lienzo2D extends javax.swing.JPanel {
         alisar=false;     
     }
     
+    /**
+     *
+     * @param modo
+     */
     public Lienzo2D(ModoPintado modo) {
         this();
         modo_pintado = modo;
@@ -96,6 +140,10 @@ public class Lienzo2D extends javax.swing.JPanel {
         }
     }
     
+    /**
+     *
+     * @param listener
+     */
     public void addLienzoListener(LienzoListener listener){
         if(listener!=null)
             lienzoEventListeners.add(listener);
@@ -134,6 +182,9 @@ public class Lienzo2D extends javax.swing.JPanel {
         }
     }
     
+    /**
+     *
+     */
     public void setLienzoEdit(){
         if(figura_seleccionada!=null){
             relleno=false;
@@ -177,6 +228,11 @@ public class Lienzo2D extends javax.swing.JPanel {
         } 
     }
     
+    /**
+     *
+     * @param puntoInicial
+     * @return
+     */
     public ShapeRRN createShape(Point puntoInicial){
         ShapeRRN shape = null;
         if(modo_pintado!=null && puntoInicial!=null){
@@ -221,6 +277,12 @@ public class Lienzo2D extends javax.swing.JPanel {
         return shape;
     }
     
+    /**
+     *
+     * @param shape
+     * @param puntoInicial
+     * @param puntoFinal
+     */
     public void updateShape(ShapeRRN shape, Point puntoInicial, Point puntoFinal){
         if(shape!=null && puntoInicial!=null && puntoFinal!=null){
             shape.setFinalShape(puntoInicial, puntoFinal);
@@ -228,6 +290,13 @@ public class Lienzo2D extends javax.swing.JPanel {
         }   
     }
     
+    /**
+     *
+     * @param shape
+     * @param puntoInicial
+     * @param puntoFinal
+     * @param puntoRef
+     */
     public void editShape(ShapeRRN shape, Point puntoInicial, Point puntoFinal, Point puntoRef){
         if(shape!=null && puntoRef!=null && puntoInicial!=null && puntoFinal!=null){
             Point p;
@@ -236,6 +305,10 @@ public class Lienzo2D extends javax.swing.JPanel {
         }
     }
     
+    /**
+     *
+     * @param shape
+     */
     public void updateAtributes(ShapeRRN shape){ 
         shape.añadirAtributo(new TransparenciaRRN(shape, transparencia, nivelTransparencia));
         
@@ -274,100 +347,198 @@ public class Lienzo2D extends javax.swing.JPanel {
     ////////////////////////
     //  GETTERS Y SETTERS //
     ////////////////////////
+
+    /**
+     *
+     * @return
+     */
     
     public ArrayList<ShapeRRN> getvShape() {
         return vShape;
     }
+
+    /**
+     *
+     * @param vShape
+     */
     public void setvShape(ArrayList<ShapeRRN> vShape) {    
         this.vShape = vShape;
     }
 
+    /**
+     *
+     * @return
+     */
     public ShapeRRN getFigura_seleccionada() {
         return figura_seleccionada;
     }
 
+    /**
+     *
+     * @param figura_seleccionada
+     */
     public void setFigura_seleccionada(ShapeRRN figura_seleccionada) {
         this.figura_seleccionada = figura_seleccionada;
     }
     
+    /**
+     *
+     * @return
+     */
     public ModoPintado getModoPintado() {
         return modo_pintado;
     }
 
+    /**
+     *
+     * @param modo_pintado
+     */
     public void setModoPintado(ModoPintado modo_pintado) {
         this.modo_pintado = modo_pintado;
         if(modo_pintado!=ModoPintado.Edicion)
             notifyEditableCoordEvent(new LienzoEvent(this,nuevaFigura, this) );
     }
 
+    /**
+     *
+     * @return
+     */
     public Color getColorStroke() {
         return colorStroke;
     }
     
+    /**
+     *
+     * @param colorStroke
+     */
     public void setColorStroke(Color colorStroke) {
         this.colorStroke = colorStroke;
     }
     
+    /**
+     *
+     * @return
+     */
     public Color getColorRelleno() {
         return colorRelleno;
     }
 
+    /**
+     *
+     * @param colorRelleno
+     */
     public void setColorRelleno(Color colorRelleno) {
         this.colorRelleno = colorRelleno;
     }
     
+    /**
+     *
+     * @return
+     */
     public int getTamañoTrazo() {
         return tamañoTrazo;
     }
 
+    /**
+     *
+     * @param tamañoTrazo
+     */
     public void setTamañoTrazo(int tamañoTrazo) {
         this.tamañoTrazo = tamañoTrazo;
     }
     
+    /**
+     *
+     * @return
+     */
     public TipoTrazo getTrazo() {
         return trazo;
     }
 
+    /**
+     *
+     * @param trazo
+     */
     public void setTrazo(TipoTrazo trazo) {
         this.trazo = trazo;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean isRelleno() {
         return relleno;
     }
 
+    /**
+     *
+     * @param relleno
+     */
     public void setRelleno(boolean relleno) {
         this.relleno = relleno;
     }
     
+    /**
+     *
+     * @return
+     */
     public TipoRelleno getTipoRelleno() {
         return tipo_relleno;
     }
     
+    /**
+     *
+     * @param relleno
+     */
     public void setTipoRelleno(TipoRelleno relleno) {
         this.tipo_relleno = relleno;
     }
     
+    /**
+     *
+     * @return
+     */
     public boolean isTransparencia() {
         return transparencia;
     }
     
+    /**
+     *
+     * @param transparencia
+     */
     public void setTransparencia(boolean transparencia) {
         this.transparencia = transparencia;
     }
     
+    /**
+     *
+     * @return
+     */
     public float getNivelTransparencia() {
         return nivelTransparencia;
     }
     
+    /**
+     *
+     * @param nivelTransparencia
+     */
     public void setNivelTransparencia(float nivelTransparencia) {
         this.nivelTransparencia = nivelTransparencia;
     }
     
+    /**
+     *
+     * @return
+     */
     public boolean isAlisar() {
         return alisar;
     }
 
+    /**
+     *
+     * @param alisar
+     */
     public void setAlisar(boolean alisar) {
         this.alisar = alisar;
     }

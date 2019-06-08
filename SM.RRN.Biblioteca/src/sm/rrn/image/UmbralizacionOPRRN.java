@@ -11,11 +11,15 @@ import sm.image.BufferedImageOpAdapter;
 
 /**
  *
- * @author raulr
+ * @author Raúl Ruano Narváez
  */
 public class UmbralizacionOPRRN extends BufferedImageOpAdapter{
     private int umbral;
     
+    /**
+     *
+     * @param umbral
+     */
     public UmbralizacionOPRRN(int umbral){
         this.umbral = umbral;
     }

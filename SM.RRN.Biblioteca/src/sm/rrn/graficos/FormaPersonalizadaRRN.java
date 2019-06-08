@@ -12,18 +12,26 @@ import java.awt.geom.Point2D;
 import java.util.ArrayList;
 
 /**
- *
+ * Clase que define la figura FormaPersonalizadaRRN la cual es un ShapeRRN
  * @author Raul
  */
 public class FormaPersonalizadaRRN extends ShapeRRN{
     private ArrayList<Point> puntosTrazo;
     
+    /**
+     * Constructor por parámetros para crear una FormaPersonalizadaRRN
+     * @param pos Punto inicial de la ElipseRRN
+     */
     public FormaPersonalizadaRRN(Point pos){
         super(new Path2D.Double());      
         puntosTrazo = new ArrayList<>();
         crearEstrella(pos.getX(), pos.getY());
     }
 
+    /**
+     * Método para modificar la posición inicial del FormaPersonalizadaRRN
+     * @param pos Posición final que se quiere setear
+     */
     @Override
     public void setLocation(Point2D pos) {
         ((Path2D.Double) shape).reset();
@@ -40,11 +48,21 @@ public class FormaPersonalizadaRRN extends ShapeRRN{
         ((Path2D.Double) shape).closePath();
     }
 
+    /**
+     * No implementado
+     * @param puntoInicial No implementado
+     * @param puntoFinal No implementado
+     */
     @Override
     public void setFinalShape(Point2D puntoInicial, Point2D puntoFinal) {
         ;
     }
     
+    /**
+     * Método que genera una estrella con un centro en X y en Y
+     * @param centroX Posición X del punto
+     * @param centroY Posición Y del punto
+     */
     private void crearEstrella(double centroX, double centroY){
         for (int i = 0; i < 5 * 2; i++){
             double angulo = 50 + i * Math.PI / 5;

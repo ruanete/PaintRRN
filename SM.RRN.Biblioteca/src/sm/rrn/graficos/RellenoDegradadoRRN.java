@@ -21,6 +21,14 @@ public class RellenoDegradadoRRN extends AtributoRRN{
     TipoRelleno tipoRelleno;
     GradientPaint degradado;
 
+    /**
+     *
+     * @param shape
+     * @param activado
+     * @param colorInicio
+     * @param colorFinal
+     * @param tipoRelleno
+     */
     public RellenoDegradadoRRN(ShapeRRN shape, boolean activado, Color colorInicio, Color colorFinal, TipoRelleno tipoRelleno) {
         super(shape, "RellenoDegradado");
         this.activado = activado;
@@ -47,18 +55,34 @@ public class RellenoDegradadoRRN extends AtributoRRN{
             
     }
 
+    /**
+     *
+     * @return
+     */
     public Color getColorInicio() {
         return colorInicio;
     }
 
+    /**
+     *
+     * @return
+     */
     public Color getColorFinal() {
         return colorFinal;
     }
 
+    /**
+     *
+     * @return
+     */
     public TipoRelleno getTipoRelleno() {
         return tipoRelleno;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean isActivado() {
         return activado;
     }

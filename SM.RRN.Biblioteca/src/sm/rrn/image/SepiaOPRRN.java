@@ -10,10 +10,13 @@ import sm.image.BufferedImageOpAdapter;
 
 /**
  *
- * @author raulr
+ * @author Raúl Ruano Narváez
  */
 public class SepiaOPRRN extends BufferedImageOpAdapter{
     
+    /**
+     *
+     */
     public SepiaOPRRN(){
         ;
     }

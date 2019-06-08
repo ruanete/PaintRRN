@@ -10,24 +10,43 @@ import java.awt.geom.Line2D;
 import java.awt.geom.Point2D;
 
 /**
- *
- * @author raulr
+ * Clase que define la figura LineaRRN la cual es un ShapeRRN
+ * @author Raúl Ruano Narváez
  */
 public class LineaRRN extends ShapeRRN{
     
+    /**
+     * Constructor por parámetros para crear un LineaRRN
+     * @param puntoInicial Punto con la posición inicial de la figura
+     * @param puntoFinal Punto con la posición final de la figura
+     */
     public LineaRRN(Point2D puntoInicial, Point2D puntoFinal){
         super(new Line2D.Double(puntoInicial, puntoFinal));
     }
     
+    /**
+     * Método para comprobar si un punto esta a distancia menos o igual que 4 de la LineaRRN
+     * @param p Punto desde donde se quiere comprobar la distancia a la LineaRRN
+     * @return Devuelve un boolean de si esta a menos de 4 de distancia de la LineaRRN
+     */
     public boolean isNear(Point2D p){
         return ((Line2D.Double) shape).ptLineDist(p)<=4.0;
     }
     
+    /**
+     * Método para comprobar si un punto está dentro de una LineaRRN
+     * @param p Punto que se comprueba si está dentro de una LineaRRN
+     * @return Devuelve true si esta cerca de 
+     */
     @Override
     public boolean contains(Point2D p){
         return isNear(p);
     }
     
+    /**
+     * Método para modificar la posición inicial del LineaRRN
+     * @param pos Posición inicial de la figura
+     */
     @Override
     public void setLocation(Point2D pos){
         Point paux = (Point) pos;
@@ -46,6 +65,11 @@ public class LineaRRN extends ShapeRRN{
         ((Line2D.Double) shape).setLine(paux,newp2);
     }
     
+    /**
+     * Método para modificar la posición final del LineaRRN
+     * @param puntoInicial Punto con la posición inicial de la figura
+     * @param puntoFinal Punto con la posición final a la que se moverá la figura
+     */
     @Override
     public void setFinalShape(Point2D puntoInicial, Point2D puntoFinal){
         ((Line2D.Double) shape).setLine(puntoInicial, puntoFinal);

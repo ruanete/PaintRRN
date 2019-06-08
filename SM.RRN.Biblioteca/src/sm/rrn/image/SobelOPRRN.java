@@ -16,7 +16,7 @@ import sm.image.KernelProducer;
 
 /**
  *
- * @author raulr
+ * @author Raúl Ruano Narváez
  */
 public class SobelOPRRN extends BufferedImageOpAdapter{
 

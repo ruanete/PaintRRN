@@ -9,15 +9,35 @@ import java.awt.image.Kernel;
 
 /**
  *
- * @author raulr
+ * @author Raúl Ruano Narváez
  */
 public class KernelProducerRRN {
+
+    /**
+     *
+     */
     public static final int TYPE_MEDIA_5x5 = 0;
+
+    /**
+     *
+     */
     public static final int TYPE_MEDIA_7x7 = 1;
     
+    /**
+     *
+     */
     public static float [] MASCARA_MEDIA_5x5 = {};
+
+    /**
+     *
+     */
     public static float [] MASCARA_MEDIA_7x7 = {};
     
+    /**
+     *
+     * @param valor
+     * @return
+     */
     public static float [] crearMascaraMedia(int valor){
         float vector[] = new float[valor*valor];
         
@@ -28,6 +48,11 @@ public class KernelProducerRRN {
         return vector;
     }
     
+    /**
+     *
+     * @param opcion
+     * @return
+     */
     public static Kernel createKernel(int opcion){
         if(opcion==TYPE_MEDIA_5x5){
             MASCARA_MEDIA_5x5 = crearMascaraMedia(5);

@@ -23,7 +23,7 @@ import sm.rrn.iu.TipoTrazo;
 
 /**
  *
- * @author raulr
+ * @author Raúl Ruano Narváez
  */
 public class ManejadorLienzo implements LienzoListener{
     private VentanaPrincipal ventanaPrincipal;

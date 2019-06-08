@@ -20,11 +20,15 @@ import sm.rrn.graficos.TrazoRRN;
 
 /**
  *
- * @author raulr
+ * @author Raúl Ruano Narváez
  */
 public class LienzoImagen2D extends Lienzo2D {
     BufferedImage imagen;
     Boolean imagenAbierta;
+
+    /**
+     *
+     */
     public static Boolean activarBound;
     
     /**
@@ -37,6 +41,10 @@ public class LienzoImagen2D extends Lienzo2D {
         activarBound = true;
     }
     
+    /**
+     *
+     * @param imagen
+     */
     public void setImage(BufferedImage imagen){
         this.imagen = imagen;
         if(imagen!=null) {
@@ -45,6 +53,11 @@ public class LienzoImagen2D extends Lienzo2D {
         } 
     }
     
+    /**
+     *
+     * @param guardar
+     * @return
+     */
     public BufferedImage getImage(boolean guardar){
         if(guardar){
             BufferedImage imageFinal = new BufferedImage(imagen.getWidth(), imagen.getHeight(), imagen.getType());
@@ -56,18 +69,34 @@ public class LienzoImagen2D extends Lienzo2D {
         return imagen;
     }
 
+    /**
+     *
+     * @return
+     */
     public Boolean getImagenAbierta() {
         return imagenAbierta;
     }
 
+    /**
+     *
+     * @param imagenAbierta
+     */
     public void setImagenAbierta(Boolean imagenAbierta) {
         this.imagenAbierta = imagenAbierta;
     }
 
+    /**
+     *
+     * @return
+     */
     public Boolean getActivarBound() {
         return activarBound;
     }
 
+    /**
+     *
+     * @param activarBound
+     */
     public void setActivarBound(Boolean activarBound) {
         this.activarBound = activarBound;
     }
@@ -82,6 +111,10 @@ public class LienzoImagen2D extends Lienzo2D {
         dibujarLienzo(g);
     }
     
+    /**
+     *
+     * @param g
+     */
     public void dibujarLienzo(Graphics g){
         ShapeRRN shape = new RectanguloRRN(new Point(0,0), imagen.getWidth(), imagen.getHeight());
         Graphics2D g2d = (Graphics2D)g;

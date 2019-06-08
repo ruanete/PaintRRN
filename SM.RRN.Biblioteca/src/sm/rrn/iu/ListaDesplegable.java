@@ -16,11 +16,14 @@ import javax.swing.ListCellRenderer;
 
 /**
  *
- * @author raulr
+ * @author Raúl Ruano Narváez
  */
 public class ListaDesplegable extends JPanel implements ListCellRenderer<Color>{
     private JButton boton = new JButton();
     
+    /**
+     *
+     */
     public ListaDesplegable(){
         setLayout(new BorderLayout());
         setPreferredSize(new Dimension(30, 30));

@@ -10,6 +10,14 @@ package sm.rrn.iu;
  * @author Raul
  */
 public enum TipoTrazo {
+
+    /**
+     *
+     */
     LINEA_CONTINUA,
+
+    /**
+     *
+     */
     LINEA_DISCONTINUA
 }

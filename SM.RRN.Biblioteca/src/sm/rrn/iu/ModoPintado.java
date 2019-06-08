@@ -7,20 +7,72 @@ package sm.rrn.iu;
 
 /**
  *
- * @author raulr
+ * @author Raúl Ruano Narváez
  */
 public enum ModoPintado {
+
+    /**
+     *
+     */
     Punto,
+
+    /**
+     *
+     */
     Linea,
+
+    /**
+     *
+     */
     Rectangulo,
+
+    /**
+     *
+     */
     Elipse,
+
+    /**
+     *
+     */
     Edicion,
+
+    /**
+     *
+     */
     Arco,
+
+    /**
+     *
+     */
     RoundedRectangle,
+
+    /**
+     *
+     */
     QuadCurve,
+
+    /**
+     *
+     */
     CubicCurve,
+
+    /**
+     *
+     */
     TrazoLibre,
+
+    /**
+     *
+     */
     Poligono,
+
+    /**
+     *
+     */
     FormaPersonalizada,
+
+    /**
+     *
+     */
     Texto
 }

@@ -10,7 +10,19 @@ package sm.rrn.iu;
  * @author Raul
  */
 public enum TipoRelleno {
+
+    /**
+     *
+     */
     COLOR_SOLIDO,
+
+    /**
+     *
+     */
     DEGRADADO_HORIZONTAL,
+
+    /**
+     *
+     */
     DEGRADADO_VERTICAL
 }

@@ -9,7 +9,7 @@ import java.awt.Color;
 
 /**
  *
- * @author raulr
+ * @author Raúl Ruano Narváez
  */
 public class SelectorColores extends javax.swing.JDialog {
     int opcion;

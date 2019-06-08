@@ -13,6 +13,10 @@ import java.awt.Font;
 public class TextoRRN{
     String texto;
     
+    /**
+     *
+     * @param texto
+     */
     public TextoRRN(String texto){
         this.texto = texto;
     }

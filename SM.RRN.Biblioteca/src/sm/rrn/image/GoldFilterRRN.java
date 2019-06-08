@@ -11,10 +11,13 @@ import sm.image.BufferedImageOpAdapter;
 
 /**
  *
- * @author raulr
+ * @author Raúl Ruano Narváez
  */
 public class GoldFilterRRN extends BufferedImageOpAdapter{
     
+    /**
+     *
+     */
     public GoldFilterRRN(){
         ;
     }

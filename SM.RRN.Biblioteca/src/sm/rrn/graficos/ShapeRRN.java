@@ -22,29 +22,63 @@ import sm.rrn.iu.ModoPintado;
 
 /**
  *
- * @author raulr
+ * @author Raúl Ruano Narváez
  */
 public abstract class ShapeRRN implements Shape{
+
+    /**
+     *
+     */
     protected Shape shape;
+
+    /**
+     *
+     */
     protected ArrayList<AtributoRRN> atributos = new ArrayList<AtributoRRN>();
     
+    /**
+     *
+     * @param shape
+     */
     public ShapeRRN(Shape shape){
         this.shape = shape;
     }
     
+    /**
+     *
+     * @param shape
+     * @param atributos
+     */
     public ShapeRRN(Shape shape, ArrayList<AtributoRRN> atributos){
         this.shape = shape;
         this.atributos = atributos;
     }
     
+    /**
+     *
+     * @param shape
+     */
     public ShapeRRN(ShapeRRN shape){
         this.shape = shape.shape;
         this.atributos = shape.atributos;
     }
     
+    /**
+     *
+     * @param pos
+     */
     public abstract void setLocation(Point2D pos);
+
+    /**
+     *
+     * @param puntoInicial
+     * @param puntoFinal
+     */
     public abstract void setFinalShape(Point2D puntoInicial, Point2D puntoFinal);
      
+    /**
+     *
+     */
     public void imprimirAtributos(){
         if(!atributos.isEmpty()){
             System.out.println("\nATRIBUTO: ");
@@ -66,6 +100,13 @@ public abstract class ShapeRRN implements Shape{
     /////////////////////
     //METODOS ATRIBUTOS//
     /////////////////////
+
+    /**
+     *
+     * @param g2d
+     * @param modoPintado
+     * @param figura_seleccionada
+     */
     
     public void drawShape(Graphics2D g2d, ModoPintado modoPintado, ShapeRRN figura_seleccionada){
         if(modoPintado == ModoPintado.Edicion && figura_seleccionada!=null && figura_seleccionada.equals(this) && LienzoImagen2D.activarBound){
@@ -82,11 +123,19 @@ public abstract class ShapeRRN implements Shape{
         g2d.draw(shape);
     }
     
+    /**
+     *
+     * @param g2d
+     */
     public void aplicarAtributos(Graphics2D g2d){
         for(AtributoRRN a: atributos)
             a.aplicarAtributo(g2d);
     }
     
+    /**
+     *
+     * @param atributo
+     */
     public void añadirAtributo(AtributoRRN atributo){
         ArrayList<AtributoRRN> atributosAux = new ArrayList<AtributoRRN>();
         
@@ -106,6 +155,9 @@ public abstract class ShapeRRN implements Shape{
         
     }
     
+    /**
+     *
+     */
     public void eliminarRellenos(){
         ArrayList<AtributoRRN> atributosAux = new ArrayList<AtributoRRN>();
         
@@ -119,6 +171,9 @@ public abstract class ShapeRRN implements Shape{
         this.atributos = atributosAux;    
     }
     
+    /**
+     *
+     */
     public void eliminarTransparencias(){
         ArrayList<AtributoRRN> atributosAux = new ArrayList<AtributoRRN>();
         
@@ -132,18 +187,33 @@ public abstract class ShapeRRN implements Shape{
         this.atributos = atributosAux;    
     }
 
+    /**
+     *
+     * @return
+     */
     public ArrayList<AtributoRRN> getAtributos() {
         return atributos;
     }
 
+    /**
+     *
+     * @param atributos
+     */
     public void setAtributos(ArrayList<AtributoRRN> atributos) {
         this.atributos = atributos;
     }
     
+    /**
+     *
+     */
     public void clearAtributos(){
         atributos.clear();
     }
     
+    /**
+     *
+     * @return
+     */
     public AtributoRRN getAtributoAntialising(){
         if(!atributos.isEmpty()){
             for(AtributoRRN a: atributos)
@@ -153,6 +223,10 @@ public abstract class ShapeRRN implements Shape{
         return null;
     }
     
+    /**
+     *
+     * @return
+     */
     public AtributoRRN getAtributoRellenoDegradado(){
         if(!atributos.isEmpty()){
             for(AtributoRRN a: atributos)
@@ -162,6 +236,10 @@ public abstract class ShapeRRN implements Shape{
         return null;
     }
     
+    /**
+     *
+     * @return
+     */
     public AtributoRRN getAtributoRelleno(){
         if(!atributos.isEmpty()){
             for(AtributoRRN a: atributos)
@@ -171,6 +249,10 @@ public abstract class ShapeRRN implements Shape{
         return null;
     }
     
+    /**
+     *
+     * @return
+     */
     public AtributoRRN getAtributoTransparencia(){
         if(!atributos.isEmpty()){
             for(AtributoRRN a: atributos)
@@ -180,6 +262,10 @@ public abstract class ShapeRRN implements Shape{
         return null;
     }
     
+    /**
+     *
+     * @return
+     */
     public AtributoRRN getAtributoTrazo(){
         if(!atributos.isEmpty()){
             for(AtributoRRN a: atributos)

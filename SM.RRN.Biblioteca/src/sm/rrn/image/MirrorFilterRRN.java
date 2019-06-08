@@ -15,7 +15,7 @@ import sm.image.BufferedImageOpAdapter;
 
 /**
  *
- * @author raulr
+ * @author Raúl Ruano Narváez
  */
 public class MirrorFilterRRN extends BufferedImageOpAdapter{
 

@@ -16,16 +16,30 @@ public class RellenoRRN extends AtributoRRN{
     boolean activado;
     Color color;
     
+    /**
+     *
+     * @param shape
+     * @param activado
+     * @param color
+     */
     public RellenoRRN(ShapeRRN shape, boolean activado, Color color){
         super(shape, "Relleno");
         this.activado = activado;
         this.color = color;
     }
 
+    /**
+     *
+     * @return
+     */
     public Color getColor() {
         return color;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean isActivado() {
         return activado;
     }

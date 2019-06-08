@@ -12,17 +12,24 @@ import java.awt.geom.Point2D;
 import java.util.ArrayList;
 
 /**
- *
- * @author Raul
+ * Clase que define la figura PoligonoRRN la cual es un ShapeRRN
+ * @author Raul Ruano Narváez
  */
 public class PoligonoRRN extends ShapeRRN{
     private ArrayList<Point> puntosTrazo;
     
+    /**
+     * Constructor por defecto de PoligonoRRN
+     */
     public PoligonoRRN(){
         super(new Path2D.Double());
         puntosTrazo = new ArrayList<>();
     }
     
+    /**
+     * Método para modificar la posición inicial del PoligonoRRN
+     * @param pos Posición inicial de la figura
+     */
     @Override
     public void setLocation(Point2D pos) {
         ((Path2D.Double) shape).reset();
@@ -39,6 +46,11 @@ public class PoligonoRRN extends ShapeRRN{
         ((Path2D.Double) shape).closePath();
     }
 
+    /**
+     * Método para modificar la posición final del PoligonoRRN
+     * @param puntoInicial Punto con la posición inicial de la figura
+     * @param puntoFinal Punto con la posición final a la que será movida la figura
+     */
     @Override
     public void setFinalShape(Point2D puntoInicial, Point2D puntoFinal) {
         if(puntosTrazo.size()==0){
@@ -48,16 +60,27 @@ public class PoligonoRRN extends ShapeRRN{
         }
     }
     
+    /**
+     * Crea una adición a la ruta moviéndose a las coordenadas especificadas.
+     * @param p Punto al que se movera
+     */
     public void moveTo(Point p){
         puntosTrazo.add(p);
         ((Path2D.Double) shape).moveTo(p.x, p.y);
     }
     
+    /**
+     * Metodo que añade un punto más al path y que lo conecta con el ultimo
+     * @param p Punto que hara linea con el anterior metido en el Path
+     */
     public void lineTo(Point p){
         puntosTrazo.add(p);
         ((Path2D.Double) shape).lineTo(p.x, p.y);
     }
     
+    /**
+     * Método que cierra la figura uniendo primer y ultimo punto
+     */
     public void closePath(){
         ((Path2D.Double) shape).closePath();
     }

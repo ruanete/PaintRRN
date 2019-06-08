@@ -12,19 +12,34 @@ import java.awt.geom.Point2D;
 
 /**
  *
- * @author raulr
+ * @author Raúl Ruano Narváez
  */
 public class RectanguloRRN extends ShapeRRN{
     
+    /**
+     *
+     * @param punto
+     * @param w
+     * @param h
+     */
     public RectanguloRRN(Point punto, int w, int h){
         super(new Rectangle(punto.x, punto.y, w, h));
     }
 
+    /**
+     *
+     * @param pos
+     */
     @Override
     public void setLocation(Point2D pos) {
         ((Rectangle) shape).setLocation((Point) pos);
     }
     
+    /**
+     *
+     * @param puntoInicial
+     * @param puntoFinal
+     */
     @Override
     public void setFinalShape(Point2D puntoInicial, Point2D puntoFinal){
         ((Rectangle) shape).setFrameFromDiagonal(puntoInicial, puntoFinal);

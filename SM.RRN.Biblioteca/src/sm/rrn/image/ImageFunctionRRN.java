@@ -12,13 +12,30 @@ import java.awt.image.ShortLookupTable;
 
 /**
  *
- * @author raulr
+ * @author Raúl Ruano Narváez
  */
 public class ImageFunctionRRN {
+
+    /**
+     *
+     */
     public static final int TYPE_SENO = 0;
+
+    /**
+     *
+     */
     public static final int TYPE_INVERTIR = 1;
+
+    /**
+     *
+     */
     public static final int TYPE_FUNCTIONRRN = 2;
     
+    /**
+     *
+     * @param tipo_funcion
+     * @return
+     */
     public static LookupTable createFunction(int tipo_funcion){
         LookupTable lt = null;
         
@@ -37,6 +54,11 @@ public class ImageFunctionRRN {
         return lt;
     }
     
+    /**
+     *
+     * @param w
+     * @return
+     */
     public static LookupTable seno(double w){
         double K = 255.0;
         byte f[] = new byte[256];
@@ -49,6 +71,10 @@ public class ImageFunctionRRN {
         return lt;
     }
     
+    /**
+     *
+     * @return
+     */
     public static LookupTable negativo(){
         double K = 255.0;
         byte f[] = new byte[256];
@@ -61,6 +87,10 @@ public class ImageFunctionRRN {
         return lt;
     } 
 
+    /**
+     *
+     * @return
+     */
     public static LookupTable functionRRN(){
         double K = 255.0;
         byte f[] = new byte[256];

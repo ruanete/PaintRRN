@@ -7,7 +7,7 @@ package paint;
 
 /**
  *
- * @author raulr
+ * @author Raúl Ruano Narváez
  */
 public class VentanaAyuda extends javax.swing.JDialog {
 

@@ -17,6 +17,12 @@ public class TransparenciaRRN extends AtributoRRN{
     AlphaComposite transparencia;
     float nivelTransparencia;
 
+    /**
+     *
+     * @param shape
+     * @param activado
+     * @param nivelTransparencia
+     */
     public TransparenciaRRN(ShapeRRN shape, boolean activado, float nivelTransparencia) {
         super(shape, "Transparencia");
         this.activado = activado;
@@ -28,15 +34,27 @@ public class TransparenciaRRN extends AtributoRRN{
             transparencia = AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1.0f);
     }
     
+    /**
+     *
+     * @param nivelTransparencia
+     */
     public void setTransparencia(float nivelTransparencia){
         this.nivelTransparencia = nivelTransparencia;
         transparencia = AlphaComposite.getInstance(AlphaComposite.SRC_OVER, nivelTransparencia);
     }
 
+    /**
+     *
+     * @return
+     */
     public float getNivelTransparencia() {
         return nivelTransparencia;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean isActivado() {
         return activado;
     }

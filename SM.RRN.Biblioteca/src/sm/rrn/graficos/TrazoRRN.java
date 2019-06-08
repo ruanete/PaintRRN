@@ -20,6 +20,13 @@ public class TrazoRRN extends AtributoRRN{
     TipoTrazo tipoTrazo;
     int tamañoTrazo;
             
+    /**
+     *
+     * @param shape
+     * @param color
+     * @param tipoTrazo
+     * @param tamañoTrazo
+     */
     public TrazoRRN(ShapeRRN shape, Color color, TipoTrazo tipoTrazo, int tamañoTrazo){
         super(shape, "Trazo");
         this.color = color;
@@ -34,14 +41,26 @@ public class TrazoRRN extends AtributoRRN{
         }  
     }
 
+    /**
+     *
+     * @return
+     */
     public Color getColor() {
         return color;
     }
 
+    /**
+     *
+     * @return
+     */
     public TipoTrazo getTipoTrazo() {
         return tipoTrazo;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getTamañoTrazo() {
         return tamañoTrazo;
     }
