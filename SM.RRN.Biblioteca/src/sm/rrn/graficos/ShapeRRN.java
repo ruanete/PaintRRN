@@ -21,33 +21,25 @@ import sm.rrn.iu.LienzoImagen2D;
 import sm.rrn.iu.ModoPintado;
 
 /**
- *
+ * Clase abstracta que es padre de todas las figuras contendrá un Shape de Java al que hace referencia y un vector de AtributosRRN
  * @author Raúl Ruano Narváez
  */
 public abstract class ShapeRRN implements Shape{
-
-    /**
-     *
-     */
     protected Shape shape;
-
-    /**
-     *
-     */
     protected ArrayList<AtributoRRN> atributos = new ArrayList<AtributoRRN>();
     
     /**
-     *
-     * @param shape
+     * Constructor por parámetros
+     * @param shape Shape al que se le asociará el ShapeRRN
      */
     public ShapeRRN(Shape shape){
         this.shape = shape;
     }
     
     /**
-     *
-     * @param shape
-     * @param atributos
+     * Constructor por parámetros
+     * @param shape Shape al que se le asociará el ShapeRRN
+     * @param atributos Vector de AtributoRRN
      */
     public ShapeRRN(Shape shape, ArrayList<AtributoRRN> atributos){
         this.shape = shape;
@@ -55,8 +47,8 @@ public abstract class ShapeRRN implements Shape{
     }
     
     /**
-     *
-     * @param shape
+     * Constructor de copia
+     * @param shape ShapeRRN que será copiado
      */
     public ShapeRRN(ShapeRRN shape){
         this.shape = shape.shape;
@@ -64,20 +56,20 @@ public abstract class ShapeRRN implements Shape{
     }
     
     /**
-     *
+     * Método para modificar la posición de una figura
      * @param pos
      */
     public abstract void setLocation(Point2D pos);
 
     /**
-     *
-     * @param puntoInicial
-     * @param puntoFinal
+     * Método para setear la posición inicial cuando una figura es creada
+     * @param puntoInicial Punto inicial
+     * @param puntoFinal Punto final
      */
     public abstract void setFinalShape(Point2D puntoInicial, Point2D puntoFinal);
      
     /**
-     *
+     * Método para imprimir por la salida estandar los atributos de la figura asociada
      */
     public void imprimirAtributos(){
         if(!atributos.isEmpty()){
@@ -102,10 +94,10 @@ public abstract class ShapeRRN implements Shape{
     /////////////////////
 
     /**
-     *
-     * @param g2d
-     * @param modoPintado
-     * @param figura_seleccionada
+     * Método que dibuja una figura con sus atributos
+     * @param g2d Graphics2D que permitirá el pintado de la figura
+     * @param modoPintado Modo en el que se va a pintar para realizar el bound a la figura o no, concretamente en el modo edición
+     * @param figura_seleccionada Figura usada para la edición
      */
     
     public void drawShape(Graphics2D g2d, ModoPintado modoPintado, ShapeRRN figura_seleccionada){
@@ -124,8 +116,8 @@ public abstract class ShapeRRN implements Shape{
     }
     
     /**
-     *
-     * @param g2d
+     * Método que realiza llamadas a aplicarAtributo() de cada atributo asociado a la figura
+     * @param g2d Graphics2D que permitirá el pintado de la figura
      */
     public void aplicarAtributos(Graphics2D g2d){
         for(AtributoRRN a: atributos)
@@ -133,8 +125,8 @@ public abstract class ShapeRRN implements Shape{
     }
     
     /**
-     *
-     * @param atributo
+     * Método para añadir un nuevo AtributoRRN a la figura
+     * @param atributo AtributoRRN que se añadirá
      */
     public void añadirAtributo(AtributoRRN atributo){
         ArrayList<AtributoRRN> atributosAux = new ArrayList<AtributoRRN>();
@@ -156,7 +148,7 @@ public abstract class ShapeRRN implements Shape{
     }
     
     /**
-     *
+     * Método que elimina todos los rellenos de la figura
      */
     public void eliminarRellenos(){
         ArrayList<AtributoRRN> atributosAux = new ArrayList<AtributoRRN>();
@@ -172,7 +164,7 @@ public abstract class ShapeRRN implements Shape{
     }
     
     /**
-     *
+     * Método para eliminar las transparencias de la figura
      */
     public void eliminarTransparencias(){
         ArrayList<AtributoRRN> atributosAux = new ArrayList<AtributoRRN>();
@@ -188,31 +180,31 @@ public abstract class ShapeRRN implements Shape{
     }
 
     /**
-     *
-     * @return
+     * Metodo que devuelve el vector de AtributoRRN
+     * @return Vector de AtributoRRN
      */
     public ArrayList<AtributoRRN> getAtributos() {
         return atributos;
     }
 
     /**
-     *
-     * @param atributos
+     * Método que setea un vector de AtributoRRN al ShapeRRN
+     * @param atributos Vector de AtributoRRN que se quiere setear
      */
     public void setAtributos(ArrayList<AtributoRRN> atributos) {
         this.atributos = atributos;
     }
     
     /**
-     *
+     * Método para borrar todo el vector de atributos del ShapeRRN
      */
     public void clearAtributos(){
         atributos.clear();
     }
     
     /**
-     *
-     * @return
+     * Método que devuelve el atributo AntialisingRRN
+     * @return AtributoRRN con el atributo AntialisingRRN
      */
     public AtributoRRN getAtributoAntialising(){
         if(!atributos.isEmpty()){
@@ -224,8 +216,8 @@ public abstract class ShapeRRN implements Shape{
     }
     
     /**
-     *
-     * @return
+     * Método que devuelve el atributo RellenoDegradadoRRN
+     * @return AtributoRRN con el atributo RellenoDegradadoRRN
      */
     public AtributoRRN getAtributoRellenoDegradado(){
         if(!atributos.isEmpty()){
@@ -237,8 +229,8 @@ public abstract class ShapeRRN implements Shape{
     }
     
     /**
-     *
-     * @return
+     * Método que devuelve el atributo RellenoRRN
+     * @return AtributoRRN con el atributo RellenoRRN
      */
     public AtributoRRN getAtributoRelleno(){
         if(!atributos.isEmpty()){
@@ -250,8 +242,8 @@ public abstract class ShapeRRN implements Shape{
     }
     
     /**
-     *
-     * @return
+     * Método que devuelve el atributo TransparenciaRRN
+     * @return AtributoRRN con el atributo TransparenciaRRN
      */
     public AtributoRRN getAtributoTransparencia(){
         if(!atributos.isEmpty()){
@@ -262,9 +254,9 @@ public abstract class ShapeRRN implements Shape{
         return null;
     }
     
-    /**
-     *
-     * @return
+    /** 
+     * Método que devuelve el atributo TrazoRRN
+     * @return AtributoRRN con el atributo TrazoRRN
      */
     public AtributoRRN getAtributoTrazo(){
         if(!atributos.isEmpty()){

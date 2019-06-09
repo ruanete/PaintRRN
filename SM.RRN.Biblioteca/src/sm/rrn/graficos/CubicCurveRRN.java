@@ -9,7 +9,7 @@ import java.awt.geom.CubicCurve2D;
 import java.awt.geom.Point2D;
 
 /**
- * Clase que define la figura Curva con Dos Puntos de Control la cual es un ShapeRRN
+ * Clase que define la figura Curva con Dos Puntos de Control
  * @author Raúl Ruano Narváez
  */
 public class CubicCurveRRN extends ShapeRRN{
@@ -26,7 +26,7 @@ public class CubicCurveRRN extends ShapeRRN{
     }
     
     /**
-     * Método para modificar la posición inicial del CubicCurveRRN
+     * Método para modificar la posición
      * @param pos Posición final que se quiere setear
      */
     @Override
@@ -40,9 +40,9 @@ public class CubicCurveRRN extends ShapeRRN{
     }
 
     /**
-     * Método para modificar la posición final del CubicCurveRRN
-     * @param puntoInicial Punto con la posición inicial de la figura
-     * @param puntoFinal Punto con la posición final a la que será movida la figura
+     * Método que establece la ubicación de los puntos inicial y final de la figura CubicCurve 
+     * @param puntoInicial Punto inicial
+     * @param puntoFinal Punto final
      */
     @Override
     public void setFinalShape(Point2D puntoInicial, Point2D puntoFinal) {

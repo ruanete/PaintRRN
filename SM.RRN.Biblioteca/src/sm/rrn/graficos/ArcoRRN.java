@@ -9,7 +9,7 @@ import java.awt.geom.Arc2D;
 import java.awt.geom.Point2D;
 
 /**
- * Clase que define la figura Arco la cual es un ShapeRRN
+ * Clase que define la figura Arco
  * @author Raúl Ruano Narváez
  */
 public class ArcoRRN extends ShapeRRN{
@@ -28,7 +28,7 @@ public class ArcoRRN extends ShapeRRN{
     }
     
     /**
-     * Método para modificar la posición inicial del ArcoRRN
+     * Método para modificar la posición
      * @param pos Posición final que se quiere setear
      */
     @Override
@@ -37,9 +37,9 @@ public class ArcoRRN extends ShapeRRN{
     }
 
     /**
-     * Método para modificar la posición final del ArcoRRN
-     * @param puntoInicial Punto inicial donde se situa el ArcoRRN
-     * @param puntoFinal Punto final donde será movido el ArcoRRN
+     * Método que establece la diagonal que encuadra a la figura entre dos Point2D especificados
+     * @param puntoInicial Punto inicial
+     * @param puntoFinal Punto final
      */
     @Override
     public void setFinalShape(Point2D puntoInicial, Point2D puntoFinal) {

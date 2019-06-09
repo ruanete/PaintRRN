@@ -12,8 +12,8 @@ import java.awt.Point;
 import sm.rrn.iu.TipoRelleno;
 
 /**
- *
- * @author Raul
+ * Clase que define el atributo Relleno con Degradado
+ * @author Raul Ruano Narváez
  */
 public class RellenoDegradadoRRN extends AtributoRRN{
     boolean activado;
@@ -22,12 +22,12 @@ public class RellenoDegradadoRRN extends AtributoRRN{
     GradientPaint degradado;
 
     /**
-     *
-     * @param shape
-     * @param activado
-     * @param colorInicio
-     * @param colorFinal
-     * @param tipoRelleno
+     * Constructor por parametros que asocia al ShapeRRN el atributo RellenoDegradadoRRN
+     * @param shape ShapeRRN al que se le asociado el atributo RellenoDegradadoRRN
+     * @param activado Parametro que especifica si el relleno del ShapeRRN esta activo o no
+     * @param colorInicio Color inicial del degradado
+     * @param colorFinal Color final del degradado
+     * @param tipoRelleno Tipo de degradado: DEGRADADO_VERTICAL o DEGRADADO_HORIZONTAL
      */
     public RellenoDegradadoRRN(ShapeRRN shape, boolean activado, Color colorInicio, Color colorFinal, TipoRelleno tipoRelleno) {
         super(shape, "RellenoDegradado");
@@ -56,32 +56,32 @@ public class RellenoDegradadoRRN extends AtributoRRN{
     }
 
     /**
-     *
-     * @return
+     * Método que devuelve el color de inicio del degradado
+     * @return Color inicial del degradado
      */
     public Color getColorInicio() {
         return colorInicio;
     }
 
     /**
-     *
-     * @return
+     * Método que devuelve el color de final del degradado
+     * @return Color final del degradado
      */
     public Color getColorFinal() {
         return colorFinal;
     }
 
     /**
-     *
-     * @return
+     * Método que devuelve el tipo de degradado
+     * @return TipoRelleno con el tipo
      */
     public TipoRelleno getTipoRelleno() {
         return tipoRelleno;
     }
 
     /**
-     *
-     * @return
+     * Método que devuelve si esta activo o no el relleno
+     * @return Boolean con true o false
      */
     public boolean isActivado() {
         return activado;

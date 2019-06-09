@@ -9,7 +9,7 @@ import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 
 /**
- * Clase que define el atributo de Antialising (suavizado de bordes) que podrá ser aplicado a ShapeRRN
+ * Clase que define el atributo Antialising (suavizado de bordes)
  * @author Raul Ruano Narváez
  */
 public class AntialiasingRRN extends AtributoRRN{
@@ -33,16 +33,12 @@ public class AntialiasingRRN extends AtributoRRN{
 
     /**
      * Método que devuelve si el atributo del ShapeRRN esta activado o no
-     * @return Devuelve un Booleano true o false
+     * @return Boolean con true o false
      */
     public boolean isActivado() {
         return activado;
     }
     
-    /**
-     * Método que aplica el atributo Antialising cuando la figura es pintada desde el método paint()
-     * @param g2d
-     */
     @Override
     public void aplicarAtributo(Graphics2D g2d) {
         g2d.setRenderingHints(antialiasing);

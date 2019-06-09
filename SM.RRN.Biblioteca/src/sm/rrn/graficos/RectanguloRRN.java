@@ -11,24 +11,24 @@ import java.awt.geom.Line2D;
 import java.awt.geom.Point2D;
 
 /**
- *
+ * Clase que define la figura Rectangulo
  * @author Raúl Ruano Narváez
  */
 public class RectanguloRRN extends ShapeRRN{
     
     /**
-     *
-     * @param punto
-     * @param w
-     * @param h
+     * Constructor por parámetros de RectanguloRRN
+     * @param punto Punto inicial
+     * @param w Ancho del rectangulo
+     * @param h Altura del rectangulo
      */
     public RectanguloRRN(Point punto, int w, int h){
         super(new Rectangle(punto.x, punto.y, w, h));
     }
 
     /**
-     *
-     * @param pos
+     * Método para modificar la posición
+     * @param pos Posición final que se quiere setear
      */
     @Override
     public void setLocation(Point2D pos) {
@@ -36,9 +36,9 @@ public class RectanguloRRN extends ShapeRRN{
     }
     
     /**
-     *
-     * @param puntoInicial
-     * @param puntoFinal
+     * Método que establece la diagonal que encuadra a la figura entre dos Point2D especificados
+     * @param puntoInicial Punto inicial
+     * @param puntoFinal Punto final
      */
     @Override
     public void setFinalShape(Point2D puntoInicial, Point2D puntoFinal){

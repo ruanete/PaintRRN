@@ -7,15 +7,15 @@ package sm.rrn.graficos;
 import java.awt.Font;
 
 /**
- *
+ * Clase que define un Texto (CLASE FINALMENTE NO IMPLEMENTADA)
  * @author Raul
  */
 public class TextoRRN{
     String texto;
     
     /**
-     *
-     * @param texto
+     * Método que devuelve el texto asociado
+     * @param texto String del texto
      */
     public TextoRRN(String texto){
         this.texto = texto;

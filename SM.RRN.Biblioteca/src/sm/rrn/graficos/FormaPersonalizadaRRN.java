@@ -12,7 +12,7 @@ import java.awt.geom.Point2D;
 import java.util.ArrayList;
 
 /**
- * Clase que define la figura FormaPersonalizadaRRN la cual es un ShapeRRN
+ * Clase que define la figura Estrella
  * @author Raul
  */
 public class FormaPersonalizadaRRN extends ShapeRRN{

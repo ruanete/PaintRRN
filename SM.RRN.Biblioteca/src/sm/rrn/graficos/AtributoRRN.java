@@ -17,7 +17,7 @@ public abstract class AtributoRRN {
     private String nombre_atributo;
     
     /**
-     * Constructor por parámetros de AtributoRRN
+     * Constructor por parámetros
      * @param shape ShapeRRN al que se le asociará el AtributoRRN
      * @param nombre_atributo String que pondrá nombre al AtributoRRN
      */
@@ -27,7 +27,7 @@ public abstract class AtributoRRN {
     }
     
     /**
-     * Método abstracto que será implementado en cada clase de AtributoRRN específica
+     * Método que aplicará el atributo al ShapeRRN asociado
      * @param g2d Graphics2D para poder ser pintado dicho AtributoRRN
      */
     public abstract void aplicarAtributo(Graphics2D g2d);

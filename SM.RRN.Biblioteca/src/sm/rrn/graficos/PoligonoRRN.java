@@ -12,7 +12,7 @@ import java.awt.geom.Point2D;
 import java.util.ArrayList;
 
 /**
- * Clase que define la figura PoligonoRRN la cual es un ShapeRRN
+ * Clase que define la figura Poligono
  * @author Raul Ruano Narváez
  */
 public class PoligonoRRN extends ShapeRRN{
@@ -27,8 +27,8 @@ public class PoligonoRRN extends ShapeRRN{
     }
     
     /**
-     * Método para modificar la posición inicial del PoligonoRRN
-     * @param pos Posición inicial de la figura
+     * Método para modificar la posición
+     * @param pos Posición final que se quiere setear
      */
     @Override
     public void setLocation(Point2D pos) {
@@ -47,9 +47,9 @@ public class PoligonoRRN extends ShapeRRN{
     }
 
     /**
-     * Método para modificar la posición final del PoligonoRRN
-     * @param puntoInicial Punto con la posición inicial de la figura
-     * @param puntoFinal Punto con la posición final a la que será movida la figura
+     * Método que setea el primer punto del poligono unido al segundo punto inicial
+     * @param puntoInicial Punto inicial
+     * @param puntoFinal Punto final
      */
     @Override
     public void setFinalShape(Point2D puntoInicial, Point2D puntoFinal) {

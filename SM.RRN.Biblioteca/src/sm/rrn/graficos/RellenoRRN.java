@@ -9,18 +9,18 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 
 /**
- *
- * @author Raul
+ * Clase que define el atributo Relleno
+ * @author Raul Ruano Narváez
  */
 public class RellenoRRN extends AtributoRRN{
     boolean activado;
     Color color;
     
     /**
-     *
-     * @param shape
-     * @param activado
-     * @param color
+     * Constructor por parametros que asocia al ShapeRRN el atributo RellenoRRN
+     * @param shape ShapeRRN al que se le asociado el atributo RellenoDegradadoRRN
+     * @param activado Parametro que especifica si el relleno del ShapeRRN esta activo o no
+     * @param color Color del relleno
      */
     public RellenoRRN(ShapeRRN shape, boolean activado, Color color){
         super(shape, "Relleno");
@@ -29,16 +29,16 @@ public class RellenoRRN extends AtributoRRN{
     }
 
     /**
-     *
-     * @return
+     * Método que devuelve el color del relleno
+     * @return Color del relleno
      */
     public Color getColor() {
         return color;
     }
 
     /**
-     *
-     * @return
+     * Método que devuelve si esta activo o no el relleno
+     * @return Boolean con true o false
      */
     public boolean isActivado() {
         return activado;

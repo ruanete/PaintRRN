@@ -10,7 +10,7 @@ import java.awt.geom.Ellipse2D;
 import java.awt.geom.Point2D;
 
 /**
- * Clase que define la figura ElipseRRN la cual es un ShapeRRN
+ * Clase que define la figura Elipse
  * @author Raúl Ruano Narváez
  */
 public class ElipseRRN extends ShapeRRN{
@@ -26,7 +26,7 @@ public class ElipseRRN extends ShapeRRN{
     }
     
     /**
-     * Método para modificar la posición inicial del ElipseRRN
+     * Método para modificar la posición
      * @param pos Posición final que se quiere setear
      */
     @Override
@@ -35,9 +35,9 @@ public class ElipseRRN extends ShapeRRN{
     }
     
     /**
-     * Método para modificar la posición final del ElipseRRN
-     * @param puntoInicial Punto con la posición inicial de la figura
-     * @param puntoFinal Punto con la posición final a la que será movida la figura
+     * Método que establece la diagonal que encuadra a la figura entre dos Point2D especificados
+     * @param puntoInicial Punto inicial
+     * @param puntoFinal Punto final
      */
     @Override
     public void setFinalShape(Point2D puntoInicial, Point2D puntoFinal){

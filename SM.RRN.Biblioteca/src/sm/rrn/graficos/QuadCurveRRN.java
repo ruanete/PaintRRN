@@ -10,7 +10,7 @@ import java.awt.geom.Point2D;
 import java.awt.geom.QuadCurve2D;
 
 /**
- * Clase que define la figura QuadCurveRRN la cual es un ShapeRRN
+ * Clase que define la figura Curva con Un Puntos de Control
  * @author Raúl Ruano Narváez
  */
 public class QuadCurveRRN extends ShapeRRN{
@@ -26,8 +26,8 @@ public class QuadCurveRRN extends ShapeRRN{
     }
     
     /**
-     * Método para modificar la posición inicial del QuadCurveRRN
-     * @param pos Posición inicial de la figura
+     * Método para modificar la posición
+     * @param pos Posición final que se quiere setear
      */
     @Override
     public void setLocation(Point2D pos){
@@ -39,9 +39,9 @@ public class QuadCurveRRN extends ShapeRRN{
     }
 
     /**
-     * Método para modificar la posición inicial del QuadCurveRRN
-     * @param puntoInicial Punto con la posición inicial de la figura
-     * @param puntoFinal Punto con la posición final a la que se moverá la figura
+     * Método que establece la ubicación de los puntos inicial y final de la figura QuadCurve
+     * @param puntoInicial Punto inicial
+     * @param puntoFinal Punto final
      */
     @Override
     public void setFinalShape(Point2D puntoInicial, Point2D puntoFinal) {

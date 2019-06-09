@@ -9,7 +9,7 @@ import java.awt.geom.Line2D;
 import java.awt.geom.Point2D;
 
 /**
- * Clase que define la figura PuntoRRN la cual es un ShapeRRN
+ * Clase que define la figura Punto
  * @author Raúl Ruano Narváez
  */
 public class PuntoRRN extends ShapeRRN{
@@ -42,8 +42,8 @@ public class PuntoRRN extends ShapeRRN{
     }
 
     /**
-     * Método para modificar la posición inicial del PuntoRRN
-     * @param pos Posición inicial de la figura
+     * Método para modificar la posición
+     * @param pos Posición final que se quiere setear
      */
     @Override
     public void setLocation(Point2D pos) {
@@ -54,9 +54,9 @@ public class PuntoRRN extends ShapeRRN{
     }
 
     /**
-     * Método para modificar la posición final del PuntoRRN
-     * @param puntoInicial Punto con la posición inicial de la figura
-     * @param puntoFinal Punto con la posición final a la que será movida la figura
+     * Metodo setea punto inicial
+     * @param puntoInicial Punto inicial
+     * @param puntoFinal Punto final
      */
     @Override
     public void setFinalShape(Point2D puntoInicial, Point2D puntoFinal) {

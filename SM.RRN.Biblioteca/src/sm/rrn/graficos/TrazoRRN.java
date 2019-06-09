@@ -11,8 +11,8 @@ import java.awt.Graphics2D;
 import sm.rrn.iu.TipoTrazo;
 
 /**
- *
- * @author Raul
+ * Clase que define el atributo Trazo
+ * @author Raul Ruano Narváez
  */
 public class TrazoRRN extends AtributoRRN{
     BasicStroke stroke;
@@ -21,11 +21,11 @@ public class TrazoRRN extends AtributoRRN{
     int tamañoTrazo;
             
     /**
-     *
-     * @param shape
-     * @param color
-     * @param tipoTrazo
-     * @param tamañoTrazo
+     * Constructor por parametros que asocia al ShapeRRN el atributo TrazoRRN
+     * @param shape ShapeRRN al que se le asociado el atributo RellenoDegradadoRRN
+     * @param color Color del trazo
+     * @param tipoTrazo Tipo del trazo: LINEA_CONTINUA o LINEA_DISCONTINUA
+     * @param tamañoTrazo Tamaño del trazo, el grosor
      */
     public TrazoRRN(ShapeRRN shape, Color color, TipoTrazo tipoTrazo, int tamañoTrazo){
         super(shape, "Trazo");
@@ -42,24 +42,24 @@ public class TrazoRRN extends AtributoRRN{
     }
 
     /**
-     *
-     * @return
+     * Método que devuelve el color del trazo
+     * @return Color del trazo
      */
     public Color getColor() {
         return color;
     }
 
     /**
-     *
-     * @return
+     * Método que devuelve el tipo de trazo
+     * @return TipoTrazo con el tipo de trazo
      */
     public TipoTrazo getTipoTrazo() {
         return tipoTrazo;
     }
 
     /**
-     *
-     * @return
+     * Método que devuelve el grosor del trazo
+     * @return Int con el grosor del trazo
      */
     public int getTamañoTrazo() {
         return tamañoTrazo;

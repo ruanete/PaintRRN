@@ -9,8 +9,8 @@ import java.awt.AlphaComposite;
 import java.awt.Graphics2D;
 
 /**
- *
- * @author Raul
+ * Clase que define el atributo Transparencia
+ * @author Raul Ruano Narvaez
  */
 public class TransparenciaRRN extends AtributoRRN{
     boolean activado;
@@ -18,10 +18,10 @@ public class TransparenciaRRN extends AtributoRRN{
     float nivelTransparencia;
 
     /**
-     *
-     * @param shape
-     * @param activado
-     * @param nivelTransparencia
+     * Constructor por parametros que asocia al ShapeRRN el atributo RellenoRRN
+     * @param shape ShapeRRN al que se le asociado el atributo RellenoDegradadoRRN
+     * @param activado Parametro que especifica si la transparencia del ShapeRRN esta activa o no
+     * @param nivelTransparencia Valor con el nivel de transparencia
      */
     public TransparenciaRRN(ShapeRRN shape, boolean activado, float nivelTransparencia) {
         super(shape, "Transparencia");
@@ -35,8 +35,8 @@ public class TransparenciaRRN extends AtributoRRN{
     }
     
     /**
-     *
-     * @param nivelTransparencia
+     * Método para setear el nivel de transparencia
+     * @param nivelTransparencia Valor de la transparencia
      */
     public void setTransparencia(float nivelTransparencia){
         this.nivelTransparencia = nivelTransparencia;
@@ -44,16 +44,16 @@ public class TransparenciaRRN extends AtributoRRN{
     }
 
     /**
-     *
-     * @return
+     * Método que devuelve el nivel de transparencia
+     * @return Float con el nivel de transparencia
      */
     public float getNivelTransparencia() {
         return nivelTransparencia;
     }
 
     /**
-     *
-     * @return
+     * Método que devuelve si esta activa o no la transparencia
+     * @return Boolean con true o false
      */
     public boolean isActivado() {
         return activado;

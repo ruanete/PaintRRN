@@ -12,14 +12,14 @@ import java.awt.geom.Point2D;
 import java.util.ArrayList;
 
 /**
- *
+ * Clase que define la figura Trazo Libre
  * @author Raúl Ruano Narváez
  */
 public class TrazoLibreRRN extends ShapeRRN{
     private ArrayList<Point> puntosTrazo;
 
     /**
-     *
+     * Constructor por defecto
      */
     public TrazoLibreRRN(){
         super(new Path2D.Double());
@@ -27,8 +27,8 @@ public class TrazoLibreRRN extends ShapeRRN{
     }
     
     /**
-     *
-     * @param pos
+     * Método para modificar la posición
+     * @param pos Posición final que se quiere setear
      */
     @Override
     public void setLocation(Point2D pos) {
@@ -46,9 +46,9 @@ public class TrazoLibreRRN extends ShapeRRN{
     }
 
     /**
-     *
-     * @param puntoInicial
-     * @param puntoFinal
+     * Método que setea el primer punto del trazo libre unido al segundo punto inicial
+     * @param puntoInicial Punto inicial
+     * @param puntoFinal Punto final
      */
     @Override
     public void setFinalShape(Point2D puntoInicial, Point2D puntoFinal) {
@@ -61,8 +61,8 @@ public class TrazoLibreRRN extends ShapeRRN{
     }
     
     /**
-     *
-     * @param p
+     * Crea una adición a la ruta moviéndose a las coordenadas especificadas.
+     * @param p Punto al que se movera
      */
     public void moveTo(Point p){
         puntosTrazo.add(p);
@@ -70,8 +70,8 @@ public class TrazoLibreRRN extends ShapeRRN{
     }
     
     /**
-     *
-     * @param p
+     * Metodo que añade un punto más al path y que lo conecta con el ultimo
+     * @param p Punto que hara linea con el anterior metido en el Path
      */
     public void lineTo(Point p){
         puntosTrazo.add(p);
@@ -79,7 +79,7 @@ public class TrazoLibreRRN extends ShapeRRN{
     }
     
     /**
-     *
+     * Método que cierra el path
      */
     public void closePath(){
         //((Path2D.Double) shape).closePath();
