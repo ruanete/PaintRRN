@@ -5,13 +5,11 @@
  */
 package sm.rrn.iu;
 
-import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
-import java.awt.Stroke;
 import java.awt.image.BufferedImage;
 import sm.rrn.graficos.RectanguloRRN;
 import sm.rrn.graficos.RellenoRRN;
@@ -19,7 +17,7 @@ import sm.rrn.graficos.ShapeRRN;
 import sm.rrn.graficos.TrazoRRN;
 
 /**
- *
+ * Clase que define un lienzo el cual estará compuesto por una imagen y en el cual se podrán dibujar formas con sus respectivos atributos.
  * @author Raúl Ruano Narváez
  */
 public class LienzoImagen2D extends Lienzo2D {
@@ -27,12 +25,12 @@ public class LienzoImagen2D extends Lienzo2D {
     Boolean imagenAbierta;
 
     /**
-     *
+     * Booleano que especifica si activar el contorno de una figura en edición o no
      */
     public static Boolean activarBound;
     
     /**
-     * Creates new form LienzoImagen2D
+     * Constructor por defecto de LienzoImagen2D
      */
     public LienzoImagen2D() {
         initComponents();
@@ -42,8 +40,8 @@ public class LienzoImagen2D extends Lienzo2D {
     }
     
     /**
-     *
-     * @param imagen
+     * Método que setea una imagen en el lienzo
+     * @param imagen BufferedImage con la imagen que se va a setear
      */
     public void setImage(BufferedImage imagen){
         this.imagen = imagen;
@@ -54,9 +52,9 @@ public class LienzoImagen2D extends Lienzo2D {
     }
     
     /**
-     *
-     * @param guardar
-     * @return
+     * Método que devuelve la imagen actual que hay en el lienzo
+     * @param guardar Booleano para decidir si devolver la imagen para guardar o no
+     * @return Devuelve un BufferedImage con la imagen del lienzo
      */
     public BufferedImage getImage(boolean guardar){
         if(guardar){
@@ -70,35 +68,35 @@ public class LienzoImagen2D extends Lienzo2D {
     }
 
     /**
-     *
-     * @return
+     * Método que devuelve si existe imagen abierta en el lienzo o no
+     * @return Booleano con valor true o false si la imagen esta o no abierta
      */
     public Boolean getImagenAbierta() {
         return imagenAbierta;
     }
 
     /**
-     *
-     * @param imagenAbierta
+     * Método para setear una imagen en un lienzo
+     * @param imagenAbierta Boolean con true o false en función de si la imagen se va abrir o no
      */
     public void setImagenAbierta(Boolean imagenAbierta) {
         this.imagenAbierta = imagenAbierta;
     }
 
     /**
-     *
-     * @return
+     * Método para activar el contorno que rodea toda la imagen
+     * @return Boolean con true o false
      */
     public Boolean getActivarBound() {
         return activarBound;
     }
 
     /**
-     *
-     * @param activarBound
+     * Método para activar o no el contorno que rodea la imagen
+     * @param activarBound Booleano con true o false
      */
     public void setActivarBound(Boolean activarBound) {
-        this.activarBound = activarBound;
+        LienzoImagen2D.activarBound = activarBound;
     }
     
     @Override
@@ -112,8 +110,8 @@ public class LienzoImagen2D extends Lienzo2D {
     }
     
     /**
-     *
-     * @param g
+     * Método que va a dibujar el lienzo en, activando o no el contorno de la imagen y pintando un cuadro blanco si no hay imagen abierta o pintando la imagen si esta abierta
+     * @param g Graphics para poder pintar en el lienzo
      */
     public void dibujarLienzo(Graphics g){
         ShapeRRN shape = new RectanguloRRN(new Point(0,0), imagen.getWidth(), imagen.getHeight());

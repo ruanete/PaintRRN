@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package sm.rrn.graficos;
-import java.awt.Font;
 
 /**
  * Clase que define un Texto (CLASE FINALMENTE NO IMPLEMENTADA)

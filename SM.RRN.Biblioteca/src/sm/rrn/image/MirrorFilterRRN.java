@@ -8,16 +8,21 @@ package sm.rrn.image;
 import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
-import java.util.Vector;
 import sm.image.BufferedImageOpAdapter;
 
 /**
- *
+ * Clase que define un filtro pixel a pixel el cual realiza el efecto espejo de la imagen. Lo que hace simplemente es mover los pixeles de la izquierda a la derecha y viceversa
  * @author Raúl Ruano Narváez
  */
 public class MirrorFilterRRN extends BufferedImageOpAdapter{
+    
+    /**
+     * Constructor por defecto
+     */
+    public MirrorFilterRRN(){
+        ;
+    }
 
     @Override
     public BufferedImage filter(BufferedImage src, BufferedImage dest) {

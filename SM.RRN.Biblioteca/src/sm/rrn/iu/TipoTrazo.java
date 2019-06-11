@@ -6,18 +6,18 @@
 package sm.rrn.iu;
 
 /**
- *
- * @author Raul
+ * Enumerado que define los tipos de trazo
+ * @author Raul Ruano Narvaez
  */
 public enum TipoTrazo {
 
     /**
-     *
+     * Modo LINEA CONTINUA
      */
     LINEA_CONTINUA,
 
     /**
-     *
+     * Modo LINEA DISCONTINUA
      */
     LINEA_DISCONTINUA
 }

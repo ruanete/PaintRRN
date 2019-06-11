@@ -5,14 +5,9 @@
  */
 package sm.rrn.eventos;
 
-import java.awt.Color;
 import java.util.EventObject;
 import sm.rrn.graficos.ShapeRRN;
 import sm.rrn.iu.Lienzo2D;
-import sm.rrn.iu.LienzoImagen2D;
-import sm.rrn.iu.ModoPintado;
-import sm.rrn.iu.TipoRelleno;
-import sm.rrn.iu.TipoTrazo;
 
 /**
  * Clase con los eventos de Lienzo2D el cual tendrá un ShapeRRN y un Lienzo2D

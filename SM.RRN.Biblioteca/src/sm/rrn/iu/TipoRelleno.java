@@ -6,23 +6,23 @@
 package sm.rrn.iu;
 
 /**
- *
- * @author Raul
+ * Enumerado que define los tipos de relleno
+ * @author Raul Ruano Narvaez
  */
 public enum TipoRelleno {
 
     /**
-     *
+     * Modo COLOR SOLIDO
      */
     COLOR_SOLIDO,
 
     /**
-     *
+     * Modo DEGRADADO HORIZONTAL
      */
     DEGRADADO_HORIZONTAL,
 
     /**
-     *
+     * Modo DEGRADADO VERTICAL
      */
     DEGRADADO_VERTICAL
 }

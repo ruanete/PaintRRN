@@ -15,14 +15,14 @@ import javax.swing.JPanel;
 import javax.swing.ListCellRenderer;
 
 /**
- *
+ * Clase para renderizar con un boton y su respectivo color en un ComboBox
  * @author Raúl Ruano Narváez
  */
 public class ListaDesplegable extends JPanel implements ListCellRenderer<Color>{
     private JButton boton = new JButton();
     
     /**
-     *
+     * Constructor por defecto
      */
     public ListaDesplegable(){
         setLayout(new BorderLayout());

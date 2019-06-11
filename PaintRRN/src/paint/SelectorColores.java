@@ -8,13 +8,13 @@ package paint;
 import java.awt.Color;
 
 /**
- *
+ * Clase que crea una ventana en forma de dialogo con el selector de colores
  * @author Raúl Ruano Narváez
  */
 public class SelectorColores extends javax.swing.JDialog {
     int opcion;
     /**
-     * Creates new form SelectorColores
+     * Constructor del Selector de Colores
      */
     public SelectorColores(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -22,10 +22,16 @@ public class SelectorColores extends javax.swing.JDialog {
         initComponents();
     }
     
+    /**
+    * Método que devuelve el color elegido en el selector
+    */
     public Color getColorElegido(){
         return selectorColor.getColor();
     }
 
+    /**
+    * Método que devuelve la opción elegida 0: Aceptar y 1: Cancelar
+    */
     public int getOpcion() {
         return opcion;
     }
@@ -81,6 +87,7 @@ public class SelectorColores extends javax.swing.JDialog {
     }//GEN-LAST:event_botonCancelarActionPerformed
 
     /**
+     * Método que ejecuta la ventana SelectorColores
      * @param args the command line arguments
      */
     public static void main(String args[]) {

@@ -5,13 +5,11 @@
  */
 package sm.rrn.iu;
 
-import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.Rectangle;
-import java.awt.Stroke;
 import java.awt.geom.Arc2D;
 import java.awt.geom.Point2D;
 import java.util.ArrayList;
@@ -19,7 +17,6 @@ import sm.rrn.eventos.LienzoEvent;
 import sm.rrn.eventos.LienzoListener;
 import sm.rrn.graficos.AntialiasingRRN;
 import sm.rrn.graficos.ArcoRRN;
-import sm.rrn.graficos.AtributoRRN;
 import sm.rrn.graficos.CubicCurveRRN;
 import sm.rrn.graficos.ElipseRRN;
 import sm.rrn.graficos.FormaPersonalizadaRRN;
@@ -37,7 +34,7 @@ import sm.rrn.graficos.TrazoLibreRRN;
 import sm.rrn.graficos.TrazoRRN;
 
 /**
- *
+ * Clase que define un lienzo en el cual se podrá pintar figuras con sus respectivos atributos.
  * @author Raúl Ruano Narváez
  */
 public class Lienzo2D extends javax.swing.JPanel {
@@ -48,58 +45,58 @@ public class Lienzo2D extends javax.swing.JPanel {
     private int paso;
     
     /**
-     *
+     * Variable que define el modo de pintado que es usado en el lienzo en ese momento
      */
     protected ModoPintado modo_pintado;
 
     /**
-     *
+     * Variable que define el color del contorno que es usado en el lienzo en ese momento
      */
     protected Color colorStroke,
 
     /**
-     *
+     * Variable que define el color del relleno que es usado en el lienzo en ese momento
      */
     colorRelleno;
 
     /**
-     *
+     * Variable que define el tamaño del trazo que es usado en el lienzo en ese momento
      */
     protected int tamañoTrazo;
 
     /**
-     *
+     * Variable que define el tipo de trazo que es usado en el lienzo en ese momento
      */
     protected TipoTrazo trazo;
 
     /**
-     *
+     * Variable que define si está activo el relleno o no en ese momento
      */
     protected boolean relleno;
 
     /**
-     *
+     * Variable que define el tipo de relleno que es usado en el lienzo en ese momento
      */
     protected TipoRelleno tipo_relleno;
 
     /**
-     *
+     * Variable que define si está activa la transparencia o no en ese momento
      */
     protected boolean transparencia;
 
     /**
-     *
+     * Variable que define el nivel de transparencia que es usada en el lienzo en ese momento
      */
     protected float nivelTransparencia;
 
     /**
-     *
+     * Variable que define si está activo el alisado o no en ese momento
      */
     protected boolean alisar;
     
     
     /**
-     * Creates new form Lienzo2D
+     * Constructor por defecto de Lienzo2D
      */
     public Lienzo2D() {
         initComponents();
@@ -121,8 +118,8 @@ public class Lienzo2D extends javax.swing.JPanel {
     }
     
     /**
-     *
-     * @param modo
+     * Constructor de lienzo por parametros
+     * @param modo Modo de pintado usado
      */
     public Lienzo2D(ModoPintado modo) {
         this();
@@ -141,8 +138,8 @@ public class Lienzo2D extends javax.swing.JPanel {
     }
     
     /**
-     *
-     * @param listener
+     * Método que añade un listener para manejar los eventos respectivos
+     * @param listener Listener que se quiere añadir
      */
     public void addLienzoListener(LienzoListener listener){
         if(listener!=null)
@@ -183,7 +180,7 @@ public class Lienzo2D extends javax.swing.JPanel {
     }
     
     /**
-     *
+     * Método que setea las variables de Lienzo2D con los atributos de la figura que estemos editando
      */
     public void setLienzoEdit(){
         if(figura_seleccionada!=null){
@@ -229,9 +226,9 @@ public class Lienzo2D extends javax.swing.JPanel {
     }
     
     /**
-     *
-     * @param puntoInicial
-     * @return
+     * Método que con un punto inicial genera el tipo de figura que este elegida en el lienzo en ese momento
+     * @param puntoInicial Punto inicial de la figura
+     * @return Devuelve un ShapeRRN con la figura generada
      */
     public ShapeRRN createShape(Point puntoInicial){
         ShapeRRN shape = null;
@@ -278,10 +275,10 @@ public class Lienzo2D extends javax.swing.JPanel {
     }
     
     /**
-     *
-     * @param shape
-     * @param puntoInicial
-     * @param puntoFinal
+     * Método finaliza la creación de una figura que fue iniciada por el método createShape()
+     * @param shape ShapeRRN que se va a modificar
+     * @param puntoInicial Punto inicial 
+     * @param puntoFinal Punto final 
      */
     public void updateShape(ShapeRRN shape, Point puntoInicial, Point puntoFinal){
         if(shape!=null && puntoInicial!=null && puntoFinal!=null){
@@ -291,11 +288,11 @@ public class Lienzo2D extends javax.swing.JPanel {
     }
     
     /**
-     *
-     * @param shape
-     * @param puntoInicial
-     * @param puntoFinal
-     * @param puntoRef
+     * Método que modifica la posición de una figura que ya ha sido creada con anterioridad. 
+     * @param shape ShapeRRN que se quiere mover
+     * @param puntoInicial Punto inicial
+     * @param puntoFinal Punto final
+     * @param puntoRef Punto de referencia, es el punto donde se clica por primera vez encima de la figura
      */
     public void editShape(ShapeRRN shape, Point puntoInicial, Point puntoFinal, Point puntoRef){
         if(shape!=null && puntoRef!=null && puntoInicial!=null && puntoFinal!=null){
@@ -306,8 +303,8 @@ public class Lienzo2D extends javax.swing.JPanel {
     }
     
     /**
-     *
-     * @param shape
+     * Método que permite modificar los atributos de una figura que ha sido creada con anterioridad
+     * @param shape ShapeRRN con la figura que queremos modificar
      */
     public void updateAtributes(ShapeRRN shape){ 
         shape.añadirAtributo(new TransparenciaRRN(shape, transparencia, nivelTransparencia));
@@ -349,7 +346,7 @@ public class Lienzo2D extends javax.swing.JPanel {
     ////////////////////////
 
     /**
-     *
+     * Método que devuelve el array de figuras asociado a un lienzo
      * @return
      */
     
@@ -358,40 +355,40 @@ public class Lienzo2D extends javax.swing.JPanel {
     }
 
     /**
-     *
-     * @param vShape
+     * Método para setear un array de figuras en el lienzo
+     * @param vShape Array de figuras que queremos setear en el lienzo
      */
     public void setvShape(ArrayList<ShapeRRN> vShape) {    
         this.vShape = vShape;
     }
 
     /**
-     *
-     * @return
+     * Método que devuelve la figura seleccionada en el lienzo
+     * @return ShapeRRN con la figura seleccionada
      */
     public ShapeRRN getFigura_seleccionada() {
         return figura_seleccionada;
     }
 
     /**
-     *
-     * @param figura_seleccionada
+     * Método que setea la figura seleccionada en el lienzo
+     * @param figura_seleccionada ShapeRRN con la figura que queremos setear
      */
     public void setFigura_seleccionada(ShapeRRN figura_seleccionada) {
         this.figura_seleccionada = figura_seleccionada;
     }
     
     /**
-     *
-     * @return
+     * Método que devuelve el modo de pintado actual en el lienzo
+     * @return Devuelve el modo de pintado
      */
     public ModoPintado getModoPintado() {
         return modo_pintado;
     }
 
     /**
-     *
-     * @param modo_pintado
+     * Método para setear el modo de pintado en el lienzo
+     * @param modo_pintado Modo de pintado que se va a usar
      */
     public void setModoPintado(ModoPintado modo_pintado) {
         this.modo_pintado = modo_pintado;
@@ -400,39 +397,39 @@ public class Lienzo2D extends javax.swing.JPanel {
     }
 
     /**
-     *
-     * @return
+     * Método que devuelve el color de cotorno en el lienzo
+     * @return Color del contorno
      */
     public Color getColorStroke() {
         return colorStroke;
     }
     
     /**
-     *
-     * @param colorStroke
+     * Método que setea el color del contorno en el lienzo
+     * @param colorStroke Color que se va a setear
      */
     public void setColorStroke(Color colorStroke) {
         this.colorStroke = colorStroke;
     }
     
     /**
-     *
-     * @return
+     * Método que devuelve el color de relleno en el lienzo
+     * @return Devuelve el color de relleno
      */
     public Color getColorRelleno() {
         return colorRelleno;
     }
 
     /**
-     *
-     * @param colorRelleno
+     * Método que setea el color del relleno en el lienzo
+     * @param colorRelleno Color de rellenoq que se va a setear
      */
     public void setColorRelleno(Color colorRelleno) {
         this.colorRelleno = colorRelleno;
     }
     
     /**
-     *
+     * Método que devuelve el tamaño del trazo actual en el liezno
      * @return
      */
     public int getTamañoTrazo() {
@@ -440,63 +437,63 @@ public class Lienzo2D extends javax.swing.JPanel {
     }
 
     /**
-     *
-     * @param tamañoTrazo
+     * Método para setear el tamaño del trazo actual en el lienzo
+     * @param tamañoTrazo Entero con el tamaño del trazo
      */
     public void setTamañoTrazo(int tamañoTrazo) {
         this.tamañoTrazo = tamañoTrazo;
     }
     
     /**
-     *
-     * @return
+     * Método que devuelve el tipo de trazo en el lienzo
+     * @return Tipo de trazo que se usa en el lienzo
      */
     public TipoTrazo getTrazo() {
         return trazo;
     }
 
     /**
-     *
-     * @param trazo
+     * Método para setear el tipo de trazo usado en el lienzo 
+     * @param trazo Tipo de trazo que queremos setear
      */
     public void setTrazo(TipoTrazo trazo) {
         this.trazo = trazo;
     }
 
     /**
-     *
-     * @return
+     * Método que comprueba si el relleno esta activado o no en el lienzo
+     * @return True o false de si esta activado o no
      */
     public boolean isRelleno() {
         return relleno;
     }
 
     /**
-     *
-     * @param relleno
+     * Método para setear la activación o no del relleno en el lienzo
+     * @param relleno Booleano con la activación o no del mismo
      */
     public void setRelleno(boolean relleno) {
         this.relleno = relleno;
     }
     
     /**
-     *
-     * @return
+     * Método que devuelve el tipo de relleno usado en el lienzo
+     * @return Tipo de relleno usado
      */
     public TipoRelleno getTipoRelleno() {
         return tipo_relleno;
     }
     
     /**
-     *
-     * @param relleno
+     * Método que devuelve 
+     * @param relleno Tipo de relleno que se quiere setear
      */
     public void setTipoRelleno(TipoRelleno relleno) {
         this.tipo_relleno = relleno;
     }
     
     /**
-     *
+     * Método que comprueba si esta activada o no la transparencia
      * @return
      */
     public boolean isTransparencia() {
@@ -504,40 +501,40 @@ public class Lienzo2D extends javax.swing.JPanel {
     }
     
     /**
-     *
-     * @param transparencia
+     * Método para setear la activación o no de la transparencia
+     * @param transparencia Booleano con la activación o no de la misma
      */
     public void setTransparencia(boolean transparencia) {
         this.transparencia = transparencia;
     }
     
     /**
-     *
-     * @return
+     * Método que devuelve el nivel de transparencia que existe en el lienzo
+     * @return Devuelve un float con el nivel de transparencia
      */
     public float getNivelTransparencia() {
         return nivelTransparencia;
     }
     
     /**
-     *
-     * @param nivelTransparencia
+     * Método para setear el nivel de transparencia que hay en el lienzo
+     * @param nivelTransparencia Float con el valor de la transparencia
      */
     public void setNivelTransparencia(float nivelTransparencia) {
         this.nivelTransparencia = nivelTransparencia;
     }
     
     /**
-     *
-     * @return
+     * Método para comprobar si esta activado el alisado o no
+     * @return Devuelve true o false
      */
     public boolean isAlisar() {
         return alisar;
     }
 
     /**
-     *
-     * @param alisar
+     * Método para setear el alisado en el lienzo
+     * @param alisar Booleano con la activación o no del mismo
      */
     public void setAlisar(boolean alisar) {
         this.alisar = alisar;

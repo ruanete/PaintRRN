@@ -22,21 +22,30 @@ import sm.rrn.iu.TipoRelleno;
 import sm.rrn.iu.TipoTrazo;
 
 /**
- *
+ * Clase manejadora de Lienzo que implementa el listener que creamos en la biblioteca SM.RRN.Biblioteca
  * @author Raúl Ruano Narváez
  */
 public class ManejadorLienzo implements LienzoListener{
     private VentanaPrincipal ventanaPrincipal;
 
+    /**
+    * Constructor por parámetros de ManejadorLienzo el cual usa como parámetro la VentanaPrincipal padre
+    */
     public ManejadorLienzo(VentanaPrincipal ventanaPrincipal) {
         this.ventanaPrincipal = ventanaPrincipal;
     }
    
+    /**
+    * Método que añade un nuevo elemento en la lista de figuras cuando una figura es añadida
+    */
     @Override
     public void shapeAdded(LienzoEvent evt) {
         ((DefaultComboBoxModel) ventanaPrincipal.listaDesplegableFiguras.getModel()).addElement(evt.getShape());
     }
 
+    /**
+    * Método que realiza una actualización de las variables de lienzo cuando se selecciona una figura
+    */
     @Override
     public void updateLienzo(LienzoEvent evt) {
         if(evt.getLienzo().getFigura_seleccionada()!=null){
@@ -99,6 +108,9 @@ public class ManejadorLienzo implements LienzoListener{
         }    
     }
 
+    /**
+    * Método que realiza la actualización de las coordenadas cuando una figura es seleccionada
+    */
     @Override
     public void updateCoord(LienzoEvent evt) {
         if(evt.getLienzo().getFigura_seleccionada()!=null){
@@ -107,6 +119,9 @@ public class ManejadorLienzo implements LienzoListener{
         }
     }
 
+    /**
+    * Método que pone a 0 las coordenadas cuando no hay ninguna figura seleccionada
+    */
     @Override
     public void updateCoordEditable(LienzoEvent evt) {
         ventanaPrincipal.coordenadaX.setText("0");

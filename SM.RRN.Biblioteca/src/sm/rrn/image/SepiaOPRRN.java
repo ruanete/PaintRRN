@@ -9,13 +9,17 @@ import java.awt.image.BufferedImage;
 import sm.image.BufferedImageOpAdapter;
 
 /**
- *
+ * Clase que define el filtro Sepia el cual es un color rojo anaranjado oscuro y de saturación débil y que aplicado a una imagen le da un efecto de antigüedad. 
+ * Es un filtro pixel componente a componente el cual aplica un color a cada componente respectivo a la siguiente ecuación:
+ * sepiaR = min(255 , 0.393·R + 0.769·G + 0.189·B)
+ * sepiaG = min(255, 0.349·R + 0.686·G + 0.168·B)
+ * sepiaB = min(255, 0.272·R + 0.534·G + 0.131·B)
  * @author Raúl Ruano Narváez
  */
 public class SepiaOPRRN extends BufferedImageOpAdapter{
     
     /**
-     *
+     * Constructor por defecto
      */
     public SepiaOPRRN(){
         ;

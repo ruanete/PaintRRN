@@ -15,7 +15,7 @@ import sm.image.ImageTools;
 import sm.image.KernelProducer;
 
 /**
- *
+ * Clase que define el filtro el cual usa un algoritmo detector de bordes. Recorrerá la imagen y aplicará el gradiente según las formulas respectivas vistas en teoría.
  * @author Raúl Ruano Narváez
  */
 public class SobelOPRRN extends BufferedImageOpAdapter{

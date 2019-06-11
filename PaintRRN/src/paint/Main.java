@@ -6,12 +6,13 @@
 package paint;
 
 /**
- *
- * @author Raul
+ * Clase principal de PaintRRN
+ * @author Raul Ruano Narváez
  */
 public class Main {
 
     /**
+     * Método principal que inicia la aplicación
      * @param args the command line arguments
      */
     public static void main(String args[]) {

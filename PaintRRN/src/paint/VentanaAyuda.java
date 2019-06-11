@@ -6,7 +6,7 @@
 package paint;
 
 /**
- *
+ * Clase que genera una ventana en forma de dialogo con la ventana de ayuda
  * @author Raúl Ruano Narváez
  */
 public class VentanaAyuda extends javax.swing.JDialog {
@@ -74,6 +74,7 @@ public class VentanaAyuda extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     /**
+     * Método que inicia la ventana VentanaAyuda
      * @param args the command line arguments
      */
     public static void main(String args[]) {

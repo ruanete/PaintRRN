@@ -5,7 +5,6 @@
  */
 package sm.rrn.graficos;
 
-import java.awt.Point;
 import java.awt.geom.Point2D;
 import java.awt.geom.QuadCurve2D;
 

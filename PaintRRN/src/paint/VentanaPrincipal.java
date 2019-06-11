@@ -6,7 +6,6 @@
 package paint;
 
 import sm.rrn.iu.VentanaResize;
-import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Point;
@@ -14,7 +13,6 @@ import java.awt.RenderingHints;
 import java.awt.Transparency;
 import java.awt.color.ColorSpace;
 import java.awt.geom.AffineTransform;
-import java.awt.geom.Point2D;
 import java.awt.image.AffineTransformOp;
 import java.awt.image.BufferedImage;
 import java.awt.image.ColorConvertOp;
@@ -30,35 +28,22 @@ import java.awt.image.WritableRaster;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.activation.UnsupportedDataTypeException;
 import javax.imageio.ImageIO;
-import javax.sound.sampled.AudioFileFormat;
-import javax.sound.sampled.AudioSystem;
 import javax.swing.DefaultComboBoxModel;
-import javax.swing.DefaultListModel;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import sm.image.BlendOp;
 import sm.image.EqualizationOp;
-import sm.image.ImageTools;
 import sm.image.KernelProducer;
 import sm.image.LookupTableProducer;
 import sm.image.SubtractionOp;
 import sm.image.TintOp;
-import sm.rrn.eventos.LienzoEvent;
-import sm.rrn.eventos.LienzoListener;
-import sm.rrn.graficos.AntialiasingRRN;
-import sm.rrn.graficos.AtributoRRN;
-import sm.rrn.graficos.RellenoDegradadoRRN;
-import sm.rrn.graficos.RellenoRRN;
 import sm.rrn.graficos.ShapeRRN;
-import sm.rrn.graficos.TransparenciaRRN;
-import sm.rrn.graficos.TrazoRRN;
 import sm.rrn.image.GoldFilterRRN;
 import sm.rrn.image.ImageFunctionRRN;
 import sm.rrn.image.KernelProducerRRN;
@@ -73,14 +58,13 @@ import sm.rrn.iu.ListaDesplegable;
 import sm.rrn.iu.ModoPintado;
 import sm.rrn.iu.TipoRelleno;
 import sm.rrn.iu.TipoTrazo;
-import sm.sound.SMAudioClipPlayer;
 import sm.sound.SMClipPlayer;
 import sm.sound.SMPlayer;
 import sm.sound.SMRecorder;
 import sm.sound.SMSoundRecorder;
 
 /**
- *
+ * Clase que define una VentanaPrincipal que es la ventana de toda la aplicación
  * @author Raul
  */
 public class VentanaPrincipal extends javax.swing.JFrame {
@@ -111,7 +95,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         
         inicializarListaColores();
     }
-    
+  
     private void inicializarListaColores(){
         listaDesplegableColoresContorno.addItem(Color.BLACK);
         listaDesplegableColoresContorno.addItem(Color.RED);
@@ -130,6 +114,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         listaDesplegableColoresRelleno.setRenderer(new ListaDesplegable());   
     }
     
+    /**
+     * Método que realiza una cuenta en segundos del tiempo que se esta grabando, ejecutandose en una hebra.
+     */
     public void timeTick(){
         try {
             Thread.sleep(1000);
@@ -156,10 +143,18 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         }    
     }
      
+    /**
+     * Método para setear la coordenada en el lienzo actual
+     * @param p Punto con la coordenada
+     */
     public static void setCoordenadas(Point p){
         coordenadasLienzo.setText("(" + (int)p.getX() + "," + (int)p.getY() + ")");
     }
     
+    /**
+     * Método que realiza una actualización de los botones de la ventana principal con los valores respectivos al lienzo de la ventana interna actual
+     * @param vi VentanaInterna con la ventana interna actual
+     */
     public void updateButtons(VentanaInterna vi){
         ModoPintado modo = null;
         Color colorStroke = null;
@@ -250,12 +245,20 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         }        
     }
     
+    /**
+     * Método que actualiza los atributos de una figura cuando esta siendo editada
+     * @param vi VentanInterna actual
+     */
     public void actualizarFiguraSeleccionada(VentanaInterna vi){
         if(vi.getLienzo().getModoPintado()==ModoPintado.Edicion && vi.getLienzo().getFigura_seleccionada()!=null){
             vi.getLienzo().updateAtributes(vi.getLienzo().getFigura_seleccionada());
         }
     }
     
+    /**
+     * Metodo que aplica contraste a una imagen
+     * @param opcion Opcion de contraste 0: Normal, 1: Iluminación y 2: Oscurecimiento
+     */
     public void contraste(int opcion){
         VentanaInterna vi = (VentanaInterna) (escritorio.getSelectedFrame());
         if (vi != null) {            
@@ -269,6 +272,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         }
     }
     
+    /**
+     * Método que aplica una función de las creadas en la biblioteca de tipo ImageFunctionRRN
+     * @param opcion Opcion de la función elegida
+     */
     public void aplicarFuncion(int opcion){
         VentanaInterna vi = (VentanaInterna) (escritorio.getSelectedFrame());
         if (vi != null) {            
@@ -282,6 +289,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         }
     }
     
+    /**
+     * Método que aplica rotación a una imagen
+     * @param grados Entero con los grados de la rotación
+     */
     public void rotacion(int grados){
         VentanaInterna vi = (VentanaInterna) (escritorio.getSelectedFrame());
         if (vi != null) {  
@@ -299,6 +310,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         }
     }
     
+    /**
+     * Método que escala a una imagen
+     * @param escala Double con el valor de la escala
+     */
     public void escalar(double escala){
         VentanaInterna vi = (VentanaInterna) (escritorio.getSelectedFrame());
         if (vi != null) {  

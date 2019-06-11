@@ -5,7 +5,6 @@
  */
 package sm.rrn.graficos;
 
-import sm.rrn.graficos.ShapeRRN;
 import java.awt.Graphics2D;
 
 /**

@@ -10,7 +10,9 @@ import java.awt.image.BufferedImage;
 import sm.image.BufferedImageOpAdapter;
 
 /**
- *
+ * Clase que define el filtro de Umbralización el cual consiste en agrupar píxeles que están relacionados entre sí. 
+ * En este caso se realiza la agrupación por pixel. Si la intensidad (la media de la suma de las tres componentes) 
+ * es mayor o igual que el umbral (valor del slider) se le aplica el valor al pixel maximo de 255 si no se le aplica el valor 0.
  * @author Raúl Ruano Narváez
  */
 public class UmbralizacionOPRRN extends BufferedImageOpAdapter{

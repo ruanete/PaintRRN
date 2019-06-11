@@ -10,13 +10,14 @@ import java.awt.image.BufferedImage;
 import sm.image.BufferedImageOpAdapter;
 
 /**
- *
+ * Clase que define el filtro Dorado que llevará cada pixel a un color Dorado RGB: (212, 175, 55) %= (83, 68, 21). Suma los valores de R+G+B de cada pixel, 
+ * me quedo con ese valor o si es mayor de 255 me quedo con 255 y finalmente lo multiplico por el porcentaje de color R,G o B que antes he calculado.
  * @author Raúl Ruano Narváez
  */
 public class GoldFilterRRN extends BufferedImageOpAdapter{
     
     /**
-     *
+     * Constructor por defecto
      */
     public GoldFilterRRN(){
         ;

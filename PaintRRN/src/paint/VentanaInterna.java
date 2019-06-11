@@ -5,22 +5,18 @@
  */
 package paint;
 
-import javax.swing.DefaultComboBoxModel;
-import sm.rrn.graficos.AntialiasingRRN;
-import sm.rrn.iu.Lienzo2D;
 import sm.rrn.iu.LienzoImagen2D;
-import sm.rrn.iu.ModoPintado;
 
 /**
- *
- * @author Raul
+ * Clase que define una Ventana Interna en la cual habrá un Lienzo
+ * @author Raul Ruano Narvaez
  */
 public class VentanaInterna extends javax.swing.JInternalFrame {
     static int numeroVentana = 1;
     VentanaPrincipal ventanaPrincipal;
     
     /**
-     * Creates new form VentanaInterna2
+     * Creates new form VentanaInterna
      */
     public VentanaInterna() {
         initComponents();
@@ -31,15 +27,24 @@ public class VentanaInterna extends javax.swing.JInternalFrame {
         this.setIconifiable(true);
     }
     
+    /**
+    * Constructor por parámetros que asocia una VentanaInterna con su padre VentanaPrincipal
+    */
     public VentanaInterna(VentanaPrincipal ventanaPrincipal){
         this();
         this.ventanaPrincipal = ventanaPrincipal;
     }
 
+    /**
+    * Devuelve el LienzoImagen2D asociado a la VentanaInterna
+    */
     public LienzoImagen2D getLienzo() {
         return lienzo;
     }
 
+    /**
+    * Método para setear el LienzoImagen2D a la VentanaInterna
+    */
     public void setLienzo(LienzoImagen2D lienzo) {
         this.lienzo = lienzo;
     }
