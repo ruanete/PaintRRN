@@ -57,7 +57,7 @@ public abstract class ShapeRRN implements Shape{
     
     /**
      * Método para modificar la posición de una figura
-     * @param pos
+     * @param pos Punto a donde queremos mover una figura
      */
     public abstract void setLocation(Point2D pos);
 

@@ -30,6 +30,7 @@ public class ManejadorLienzo implements LienzoListener{
 
     /**
     * Constructor por parámetros de ManejadorLienzo el cual usa como parámetro la VentanaPrincipal padre
+     * @param ventanaPrincipal VentanaPrincipal a la que referencia
     */
     public ManejadorLienzo(VentanaPrincipal ventanaPrincipal) {
         this.ventanaPrincipal = ventanaPrincipal;

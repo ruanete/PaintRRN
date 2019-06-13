@@ -40,13 +40,13 @@ public class RellenoDegradadoRRN extends AtributoRRN{
         
         switch(this.tipoRelleno){
             case DEGRADADO_VERTICAL:
-                puntoInicio = new Point(shape.getBounds().x + shape.getBounds().width/2, 0);
+                puntoInicio = new Point(shape.getBounds().x + shape.getBounds().width/2, super.getShape().getBounds().y);
                 puntoFin = new Point(shape.getBounds().x + shape.getBounds().width/2, shape.getBounds().y + shape.getBounds().height);
                 
                 degradado = new GradientPaint(puntoInicio, colorInicio, puntoFin, colorFinal);
                 break;
             case DEGRADADO_HORIZONTAL:
-                puntoInicio = new Point(0, shape.getBounds().y + shape.getBounds().height/2);
+                puntoInicio = new Point(super.getShape().getBounds().x, shape.getBounds().y + shape.getBounds().height/2);
                 puntoFin = new Point(shape.getBounds().x + shape.getBounds().width, shape.getBounds().y + shape.getBounds().height/2);
                 
                 degradado = new GradientPaint(puntoInicio, colorInicio, puntoFin, colorFinal);
@@ -86,10 +86,29 @@ public class RellenoDegradadoRRN extends AtributoRRN{
     public boolean isActivado() {
         return activado;
     }
+    
+    public void actualizarPuntos(){
+        Point puntoInicio, puntoFin;
+        switch(this.tipoRelleno){
+            case DEGRADADO_VERTICAL:
+                puntoInicio = new Point(super.getShape().getBounds().x + super.getShape().getBounds().width/2, super.getShape().getBounds().y);
+                puntoFin = new Point(super.getShape().getBounds().x + super.getShape().getBounds().width/2, super.getShape().getBounds().y + super.getShape().getBounds().height);
+                
+                degradado = new GradientPaint(puntoInicio, colorInicio, puntoFin, colorFinal);
+                break;
+            case DEGRADADO_HORIZONTAL:
+                puntoInicio = new Point(super.getShape().getBounds().x, super.getShape().getBounds().y + super.getShape().getBounds().height/2);
+                puntoFin = new Point(super.getShape().getBounds().x + super.getShape().getBounds().width, super.getShape().getBounds().y + super.getShape().getBounds().height/2);
+                
+                degradado = new GradientPaint(puntoInicio, colorInicio, puntoFin, colorFinal);
+                break;
+        }
+    }
 
     @Override
     public void aplicarAtributo(Graphics2D g2d) {
         if(activado){
+            actualizarPuntos();
             g2d.setPaint(degradado);
             g2d.fill(getShape());
         }  

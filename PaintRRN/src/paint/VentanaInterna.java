@@ -29,6 +29,7 @@ public class VentanaInterna extends javax.swing.JInternalFrame {
     
     /**
     * Constructor por parámetros que asocia una VentanaInterna con su padre VentanaPrincipal
+     * @param ventanaPrincipal VentanaPrincipal a la que referencia
     */
     public VentanaInterna(VentanaPrincipal ventanaPrincipal){
         this();
@@ -37,6 +38,7 @@ public class VentanaInterna extends javax.swing.JInternalFrame {
 
     /**
     * Devuelve el LienzoImagen2D asociado a la VentanaInterna
+     * @return Devuelve un LienzoImagen2D
     */
     public LienzoImagen2D getLienzo() {
         return lienzo;
@@ -44,6 +46,7 @@ public class VentanaInterna extends javax.swing.JInternalFrame {
 
     /**
     * Método para setear el LienzoImagen2D a la VentanaInterna
+     * @param lienzo LienzoImagen2D que se quiere setear
     */
     public void setLienzo(LienzoImagen2D lienzo) {
         this.lienzo = lienzo;

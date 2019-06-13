@@ -15,6 +15,8 @@ public class SelectorColores extends javax.swing.JDialog {
     int opcion;
     /**
      * Constructor del Selector de Colores
+     * @param parent Frame padre 
+     * @param modal Booleano con el modal
      */
     public SelectorColores(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -24,6 +26,7 @@ public class SelectorColores extends javax.swing.JDialog {
     
     /**
     * Método que devuelve el color elegido en el selector
+     * @return Devuelve el color elegido en el selector
     */
     public Color getColorElegido(){
         return selectorColor.getColor();
@@ -31,6 +34,7 @@ public class SelectorColores extends javax.swing.JDialog {
 
     /**
     * Método que devuelve la opción elegida 0: Aceptar y 1: Cancelar
+     * @return Devuelve la opción
     */
     public int getOpcion() {
         return opcion;

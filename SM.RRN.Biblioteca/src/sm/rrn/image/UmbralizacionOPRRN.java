@@ -19,8 +19,8 @@ public class UmbralizacionOPRRN extends BufferedImageOpAdapter{
     private int umbral;
     
     /**
-     *
-     * @param umbral
+     * Constructor por parámetros de UmbralizacionOPRRN
+     * @param umbral Entero con el umbral que se quiere aplicar
      */
     public UmbralizacionOPRRN(int umbral){
         this.umbral = umbral;

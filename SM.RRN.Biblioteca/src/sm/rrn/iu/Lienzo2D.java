@@ -347,7 +347,7 @@ public class Lienzo2D extends javax.swing.JPanel {
 
     /**
      * Método que devuelve el array de figuras asociado a un lienzo
-     * @return
+     * @return Arraylist de ShapeRRN
      */
     
     public ArrayList<ShapeRRN> getvShape() {
@@ -430,7 +430,7 @@ public class Lienzo2D extends javax.swing.JPanel {
     
     /**
      * Método que devuelve el tamaño del trazo actual en el liezno
-     * @return
+     * @return Entero con el tamaño del trazo
      */
     public int getTamañoTrazo() {
         return tamañoTrazo;
@@ -494,7 +494,7 @@ public class Lienzo2D extends javax.swing.JPanel {
     
     /**
      * Método que comprueba si esta activada o no la transparencia
-     * @return
+     * @return Booleano true o false
      */
     public boolean isTransparencia() {
         return transparencia;

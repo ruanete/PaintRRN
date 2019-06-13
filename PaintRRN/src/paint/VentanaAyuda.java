@@ -13,6 +13,8 @@ public class VentanaAyuda extends javax.swing.JDialog {
 
     /**
      * Creates new form VentanaAyuda
+     * @param parent Frame padre
+     * @param modal Boolean modal
      */
     public VentanaAyuda(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
