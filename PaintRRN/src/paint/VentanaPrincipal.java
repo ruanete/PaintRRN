@@ -87,6 +87,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         this.setTitle("Paint Básico - Raúl Ruano Narváez");
         listaFuentes.setVisible(false);
         botonTexto.setVisible(false);
+        botonPause.setVisible(false);
         anchoImagen=altoImagen=300;
         player = null;
         recorder = null;

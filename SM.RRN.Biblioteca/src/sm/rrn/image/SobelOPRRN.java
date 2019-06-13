@@ -16,6 +16,9 @@ import sm.image.KernelProducer;
 
 /**
  * Clase que define el filtro el cual usa un algoritmo detector de bordes. Recorrerá la imagen y aplicará el gradiente según las formulas respectivas vistas en teoría.
+ * Primero se aplica el Kernel SOBEL que se inclute en la libreria sm.image. Se realiza dicha convolución sobre la imagen, una vez realizada la convolución, se itera sobre 
+ * la imagen pixel a pixel se realiza el sumatorio de x y de y y se le aplica la raiz cuadrada de la suma de los cuadrados de los sumatorios de x y de y y esta será la 
+ * magnitud aplicada como color a la imagen destino.
  * @author Raúl Ruano Narváez
  */
 public class SobelOPRRN extends BufferedImageOpAdapter{
